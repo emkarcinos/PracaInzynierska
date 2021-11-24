@@ -2,6 +2,9 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+
+\usepackage{graphicx}
+\graphicspath{ {./assets/} }
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -37,22 +40,142 @@ oraz z doświadczenia zdobytego podczas WMI Adventure. Omawiam w niej różne me
 
 \subsection{Tematyka}
 W zespołach organizacja pracy projektowej jest kluczowa dla kontrolowanego i przewidywalnego rozwoju, w tym przypadku, oprogramowania komputerowego. W systemach o mniejszym stopniu skomplikowania
-i jednoosobowej sile roboczej wystarczy "tylko programowanie". W miarę poszerzania skali projektu i zwiększania ilości członków zespołu, wytwarzanie oprogramowania staje się chaotyczne i niekontrolowane. Klient, dla którego realizowany jest projekt potrzebuje wspomnianej przewidywalności. Chce chociażby wiedzieć, ile czasu potrwa realizacja jego zlecenia i przede wszystkim jaki będzie jego koszt. Zespół nie jest w stanie
+i jednoosobowej sile roboczej wystarczy "tylko programowanie". W miarę poszerzania skali projektu i zwiększania ilości członków zespołu, wytwarzanie oprogramowania staje się chaotyczne i niekontrolowane.
+
+Klient, dla którego realizowany jest projekt potrzebuje wspomnianej przewidywalności. Chce chociażby wiedzieć, ile czasu potrwa realizacja jego zlecenia i przede wszystkim jaki będzie jego koszt. Zespół nie jest w stanie
 rejestrować postępu prac. Każdy z członków ma inną wizję projektu i priorytetuje zupełnie inne rzeczy, niż te, które są faktycznie istotne dla klienta. Nie wiadomo, nad czym zespoł w danej chwili pracuje.
+
 Potrzeba zatem pewnej struktury, która sprawi, że rozwój oprogramowania będzie przewidywalny - tym właśnie jest zarządzanie projektem, a metodyki to zbiór pewnych ram, które ułatwią jego rozwój.
 
 \subsection{Cel}
 WMI Adventure było piaskownicą, którą wykorzystałem do nauki zarządzania zespołem w praktyce. Analizując skutki które przynosiły moje (i innych członków zespołu) decyzje, starałem się z każdym tygodniem usprawniać
-proces, wynosząc przy tym wiedzę którą chcę tutaj przekazać. W litetaturze czy materiałach dostępnych w internecie możemy znaleźć ogólne zasady zarządzania projektem, które też tutaj przytaczam, natomaist
-meritum pracy znajduje się w opisaniu konkretnego wykorzystania tych zasad, które omawiam w jej drugiej części. Drużyna WMI Adventure liczyła początkowo 4 członków, końcowo trzech. Koordynacja mniejszymi zespołami wcale nie musi być prostsza niż tymi dużymi. Chcę w tej pracy opisać metodyki w oparciu o małe zespoły i dostarczyć informację na temat problemów i potencjalnych rozwiązań, które w takich drużynach
+proces, wynosząc przy tym wiedzę którą chcę tutaj przekazać.
+
+W litetaturze czy materiałach dostępnych w internecie możemy znaleźć ogólne zasady zarządzania projektem, które też tutaj przytaczam, natomaist
+meritum pracy znajduje się w opisaniu konkretnego wykorzystania tych zasad, które omawiam w jej drugiej części.
+
+Drużyna WMI Adventure liczyła początkowo 4 członków, końcowo trzech. Koordynacja mniejszymi zespołami wcale nie musi być prostsza niż tymi dużymi. Chcę w tej pracy opisać metodyki w oparciu o małe zespoły i dostarczyć informację na temat problemów i potencjalnych rozwiązań, które w takich drużynach
 występują.
 
 \section{Metodyki pracy i ich kontekst historyczny}
+Metodyka pracy to pewien zbiór zasad, które określają w jaki sposób zespoł ma realizować swoje cele. Droga do osiągnięcia tych celów jest skomplikowana i wymaga koordynacji i zarządzania. Metodyka odpowie nam na takie pytania jak: Jaką strukture ma tworzyć zespół? Na jakie role podzielony jest zespół i jakie są odpowiedzialności poszczególnych ról? Jak mierzyć postęp w projekcie? Jak zbierać wymagania projektowe od klienta? Jak wygląda cykl życia projektu? W jaki sposób zarządza się ryzykiem?
+
+Wybór metodyki ma zatem ogromny wpływ na pracę zespołu - sposobów na zrealizowanie jednego celu może być nieskończenie wiele, każdy ma swoje konsekwencje i może doprowadzić do jego pomyślnego ukończenia, lub do całkowitej porażki. Przypadek, w którym nie zastosujemy żadnych schematów i będziemy po prostu programować według własnych zasad też jest w pewnym sensie metodyką, wcale nie skazaną na porażkę.
+
+Metodyka pracy mówi nam zatem \textit{jak} wytwarzać oprogramowanie.
 
 \subsection{Metodyki kaskadowe}
-\subsubsection{Role}
-\subsubsection{Organizacja pracy}
-\subsubsection{Cykl życia projektu}
+Początki korporacyjnego świata projektów informatycznych wykorzystywały metodykę kaskadową. Metodyki te mogły wywodzić się z doświadczenia inżynieryjnego zdobytego w fabrykach. Linia produkcyjna w fabryce jest
+stałym elementem i nie jest odporna na zmiany. Półprodukt przechodzi z jednej linii do drugiej. Nie ma możliwości, żeby gotowy przedmiot opuścił fabrykę bez przejścia każdego etapu bez jakiejkolwiek porażki.
+Każdy błąd popełniony przez pracowników na linii produkcyjnej jest katastrofalny i nie jest tolerowany.
+
+Metody kaskadowe w projektach informatycznych działają podobnie - drużyna nie jest przystosowana na zmiany, zakładane jest, że wymagania projektowe nigdy się nie zmienią i żadne błędy nie zostaną popełnione na danych etapach projektu. Poszczególne fazy projektu realizowane są sekwencyjnie - jeden po drugim, co skutkuje tym, że błędy z wcześniejszych faz są propagowane na kolejne - często ich magnituda rośnie eksponencjalnie z każdym kolejnym etapem.
+
+Drużyny w takich metodykach często składają się dużej liczby członków odpowiedzialnych za konkretne, zdefiniowane czynności.
+
+Przykładem metodyki kaskadowej jest \textbf{Rational unified process (RUP)}
+
+\subsubsection{Cykl życia projektu - Wodospad}
+\begin{center}
+    \includegraphics[scale=0.25]{waterfall_diagram.png}
+\end{center}
+
+\subsubsection*{Wymagania projektowe}
+Główna faza kontaktu z klientem. Analitycy zbierają wymagania od klienta i decydują, czy projekt zostanie zrealizowany. Szacowany jest jego czas trwania i koszt. Wynikiem końcowym tego etapu są często pierwsze dokumenty opisujące funkcjonalności w systemie - \textbf{Use cases - przypadki użycia} i \textbf{Dokument wizji projektu}
+
+Dokument wizji projektu odpowiada na pytanie \textit{Jak będzie wyglądał projekt i jaką wartość dostarczy klientowi}. Zawierają się w nim między innymi cele projektu - jak rozwiązać \textit{problem} - czyli czego klient tak naprawdę potrzebuje, opisuje grupę odbiorców systemu, produkt końcowy i wartości które wniesie. Definiowany jest zakres systemu.
+
+Przypadki użycia - use cases to szczegółowe opisy konkretnych funkcji w systemie opisane w formie ścieżek, jakie dany odbiorca będzie przechodził, żeby osiągnąć konkretny dla niego cel. Use cases są bardzo szczegółowe i przedstawiają wszystkie możliwe ścieżki i zachowania systemu.
+
+Przykładowy Use Case utworzony przeze mnie na potrzeby kursu z \textit{Inżynierii oprogramowania}:
+
+\subsubsection*{Kontekst: System zarządzania projektami w firmie produkującej filmy wideo}
+\subsubsection*{Use Case: Wprowadzenie projektu do systemu}
+\textbf{Aktor podstawowy: \textit{Szef firmy}}
+
+\subsubsection*{Główni odbiorcy i oczekiwania względem systemu}
+\begin{itemize}
+    \item Szef: jest to podstawowa funkcja z jakiej szef będzie korzystał. Zależy mu na tym, aby dostęp do niej był szybki. Chce, aby wprowadzanie danych o projekcie było objęte pewnymi stałymi ramami, do których interfejs będzie dostosowany.
+    \item Pracownik: oczekuje dostępu do nowego projektu wraz ze wszystkimi istotnymi informacjami o nim
+    \item Klient: nie chciałby, aby musiał podawać dane kilkakrotnie, powinien mieć możliwość otrzymania informacji o stanie jego projektu
+    \item Przedsiębiorstwo: potrzebuje dobrej organizacji wszystkich projektów, systematyzowania danych i ich bezpieczeństwa. W przypadku awarii systemu bądź sprzętu, musi mieć możliwość odzyskania krytycznych danych
+\end{itemize}
+
+\subsubsection*{Warunki wstępne}
+Szef jest zalogowany w systemie i ma dostęp do interfejsu zarządzania zadaniami. Baza danych ma wystarczającą ilość przestrzeni
+dyskowej, aby mógł zostać dodany wpis o projekcie.
+
+\subsubsection*{Warunki końcowe}
+Baza danych jest zaktualizowana o wpis z wszystkimi koniecznymi informacjami o projekcie. Ustalana
+jest data wprowadzenia projektu do systemu, generowany jest wpis w historii. Na osobnym dysku tworzona jest
+kopia zapasowa z wpisem do bazy. Projekt jest widoczny na tablicy pracowników i tablicy szefa. System jest w
+gotowości do przydzielenia ról i zadań pracownikom.
+
+\subsubsection*{Scenariusz główny}
+\begin{enumerate}
+    \item Podczas rozmowy z klientem, szef otwiera moduł tworzenia projektu na swoim komputerze PC poprzez aplikacę webową
+    \item Szef wprowadza dane o projekcie, wypełnia konieczne pola, między innymi: nazwę projektu, typ, krótki opis i zatwierdza utworzenie.
+    \item Po zatwiedzeniu wyświetlane są wprowadzone dane w zwizualizowanej postaci (tabela)
+    \item Szef ma możliwość modyfikacji lub zatwierdzenia projektu \newline \textit{W przypadku modyfikacji, powtarza krok 2 i 3}
+    \item System przekazuje dane z klienta do serwera. Tworzony jest nowy wpis w bazie danych oraz kopia zapasowa.
+    \item Na aplikacjach klienckich wyświetla się powiadomienie o nowym projekcie.
+    \item Szef otrzymuje wiadomość zwrotną, że projekt został dodany pomyślnie
+    \item W dowolnym momencie może zostać wprowadzana zmiana w danych projektu, mogą zostać załączone zewnętrzne dokumenty. \textit{Powtarzane są wtedy kroki 2-4}. Wpis w bazie danych oraz kopia zapasowa są aktualizowane.
+\end{enumerate}
+
+\subsubsection*{Rozszerzenia}
+
+\subsubsection*{* W dowolnym momencie system ulega awarii}
+Integralnośc danych musi zostać zachowana, zatem konieczna jest transakcyjność. Aktualizacje
+i tworzenie wpisów o projekcie musi zostać zaktualizowane tylko w przypadku kompletnego przesłania
+danych z aplikacji klienckiej do serwera i bazy danych
+\begin{enumerate}
+    \item W przypadku automatycznego powrotu systemu do stanu gotowości, szef sprawdza, czy wpis o nowym projekcie został utworzony
+          \begin{enumerate}
+              \item W przypadku braku wpisu, proces dodania projektu jest powtarzany
+              \item W przypadku poprawnego dodania wpisu, proces przebiega pomyślnie i szef może kontynuować pracę
+          \end{enumerate}
+    \item Gdy system nie powraca do stanu gotowości, szef musi poinformować administratora o błędzie w systemie. Administrator podejmuje odpowiednie kroki, aby przywrócić system do działania
+\end{enumerate}
+
+\subsubsection*{2. Niekompletne dane}
+W przypadku, gdy nie zostanie wprowadzona \textit{nazwa projektu}, projekt nie zostanie dodany, szef zostanie poinformowany o błędzie.
+
+\subsubsection*{5a. Błąd połączenia z serwerem lub błąd bazy danych}
+Wpis o nowym projekcie nie zostaje dodany. Aplikacja kliencka informuje o błędzie połączenia z serwerem i konieczności skontakowania się z administratorem
+
+\subsubsection*{5b. Projekt już istnieje}
+Gdy system bazodanowy wykryje, że projekt o tej samej nazwie istnieje już w bazie, wpis o nim nie jest dodawany. Interfejs sygnalizuje o błędzie i konieczności zmiany nazwy projektu.
+
+\subsubsection*{8a. Błędnie wprowadzone dane}
+Gdy system wykryje, że np. zmieniana jest nazwa projektu na nazwę już istniejącą, zwróci błąd.
+
+\subsubsection*{8b. Załączanie plików}
+Szef może chcieć dodać dokument do projektu.
+\begin{enumerate}
+    \item Interfejs graficzny oferuję przesłanie i tym samym załączenie pliku do projektu.
+    \item Szef wybiera plik i przesyła go na serwer.
+          \begin{enumerate}
+              \item Obliczana jest ilość wolnego miejsca na dysku serwerowym. Gdy ilość wolnego miejsca nie jest wystarczająca do przesłania pliku, zostaje zwrócony błąd.
+              \item Podczas przesyłania występuje zerwanie połączenia. Plik nie jest przesłany i zostaje wysłane powiadomienie do aplikacji klienckiej.
+              \item Gdy plik jest wysłany poprawnie i znajduje się już na serwerze, tworzona jest jego kopia zapasowa, oraz dodawany jest wpis w bazie danych zawierający ścieżkę do dokumentu.
+              \item W przypadku sukcesu wszystkich procesów, zwracana jest wiadomość o sukcesie
+          \end{enumerate}
+\end{enumerate}
+
+\subsubsection*{Design}
+Na podstawie wcześniej zebranych wymagań analitycy we współpracy z architektami systemu decydują jak będzie wyglądał końcowy efekt i w jaki sposób zostanie utworzony. Podejmowane są tutaj takie decyzje jak wybór technologii i achitektura całego systemu, tworzone są wstępne projekty intefrejsu. Po tej fazie wszystkie Use Case'y dla projektu powinny zostać ukończone. Powstaje także \textbf{dokument wymagań projektowych} stanowiący bardziej techniczną i szczegółową wersję dokumentu wizji. Definiowany jest zakres systemu, wymagania funkcjonalne i niefunkcjonalne czy kryteria akceptacji i ryzyka projektowe.
+
+\subsubsection*{Implementacja}
+Zespół programistów ze współpracy z architektami systemu implementują jego design. W tej fazie powinna powstać większość bytów programistycznych realizująca cały zakres systemu.
+
+\subsubsection*{Testowanie i walidacja}
+Po ukończeniu prac programistycznych zespół odpowiedzialny za testowanie systemu rozpoczyna swoją pracę i sprawdza, czy cały system działa. Implementacja jest weryfikowana pod kątem spełnienia wymagań projektowych, tworzone są raporty z testów, ostatnie funkcjonalności są zaimlpementowane. Wszystkie use casy są zrealizowane.
+
+\subsubsection*{Wdrożenie i utrzymanie}
+System jest przygotowywany do oddania klientowi. Administratorzy systemowi wdrażają cały projekt według zaplanowanego rozwiązania architektonicznego. Tworzone są dokumenty instruujące jego odbiorców jak go używać.
+
+Po wdrożeniu system jest dalej utrzymywany według wcześniej ustalonych zasad, poprawiane są błędy, które wcześniej nie zostały wykryte. System nie powinien być już dalej uzupełniany o nowe funkcjonalności.
 
 \subsection{Agile}
 \subsubsection{Manifest Agile}
