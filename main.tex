@@ -255,11 +255,79 @@ User stories stanowią najmniejszą jednostkę pracy dla zespołu.
 
 Ilość zrealizowanych User Stories na danym etapie projektu stanowi dobrą metrykę faktycznych postępów nad systemem. Reprezentują mierzalną wartość dla klienta, który podczas iteracji jest w stanie oceniać, czy są zrealizowane poprawnie.
 
-\section{Metodyki zwinne}
+\section{Wybrane metodyki zwinne}
 
 \subsection{Scrum}
+
+Scrum sam w sobie nie jest tak naprawdę metotyką, a bardziej \textit{frameworkiem}\footnote{z ang. szkielet, struktura, model} opisujący pewne praktyki opisujące jak budować taki proces\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 53}. Znamy zasady gry, ale sposób na jej zwycięstwo zależy już od nas, czy w przypadku projektów informatycznych, od naszego zespołu. Scrum to zatem w pewnym sensie metoda działania.
+
 \subsubsection{Role w zespole}
+
+\subsubsection*{Product Owner - właściciel produktu}
+\textit{Właściwiel produktu}, jak sama nazwa wskazuje, odpowiada za produkt tworzony przez zespół. Jego głównymi zadanami jest dbanie o \textit{Product backlog} i o wartość pracy zespołu.
+
+W odróżnieniu od metod kaskadowych, gdzie rola \textit{manedżera projektu} czy \textit{analityka} była rozłączna od całego zespołu, tutaj Product Owner jest jego częścią. "Opiekuje" się produktem tworzonym przez zespół. Wymagania nie są już tworzone tylko przez klienta i spisywane przez analityków, zespół tworzy je razem z Product Ownerem.\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 78}
+\subsubsection*{Scrum Master}
+
+\textit{Scrum Master} jest pewnego rodzaju strażnikiem całego zespołu Scrumowego. Dba on o to, aby zespół mógł pracować bez żadnych zakłóceń zewnętrznych, takich jak ingerencja wyższych kierowników, czy problemy firmy. Jest też swojego rodzaju strażnikiem procesu, ale rozumianym w mniej restrykcyjny sposób - dba o to, żeby wszyscy członkowie zespołu rozumieli tą metodykę i poprawnie ją stosowali. Wspomaga jego rozwój, dba o relacje między członkami zespołu. Asystuje Product Owner'a w kwestiach produktowych. Sam Scrum Master nie powinien uczestniczyć w programistycznych dyskusjach.\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 62-66}
+
+\subsubsection*{Deweloper, czyli "zwykły" członek zespołu}
+Członkowie zespołu Scrumowego to nie koniecznie tylko programiści. W zależności od tego, czego potrzebuje zespół do realizowania User Stories mogą się w nim znaleźć takie role jak grafik, tester, projektant interfejsu, czy nawet tłumacz, jeżeli produkt tego wymaga. Ich rolą jest realizowanie User Storiesów. W odróżnieniu od programistów czy testerów w kaskadowym podejściu, zespół uczestniczy w spotkaniach produktowych i jest w stanie wpłynąć na to, jak wyglądają wymagania projektowe. Drużyna jest samoorganizacyjna, to oni decydują o tym, w jaki sposób wykonują zadania podczas Sprintu.
+
 \subsubsection{Organizacja pracy}
+
+\subsubsection*{Agilowy cykl życia projektu w Scrumie}
+
+\begin{center}
+    \includegraphics[scale=0.35]{scrum.png}
+\end{center}
+
+\subsubsection*{Product Backlog}
+Product Backlog \textit{z ang. Rejestr Produktu} przechowuje wymagania projektowe od klienta. Zawierają się w nim głównie User Stories, pogrupowane w większe fragmenty zwane \textbf{Epicami} stanowiące pewne kamienie milowe dla projektu.
+
+\subsubsection*{Daily}
+Daily to inaczej codzienne spotkanie w Scrumie. Jego głównym celem jest przedstawienie obecnego stanu realizowanych zadań przez członków zespołu. Codzienne spotkania mają charakter wewnętrzny. Zespół opowiada o postępach nad zadaniami, sygnalizuje problemy i przeprowadza krótkie dyskusję na temat wykonywanych prac.
+
+Takie spotkania informują cały zespół o tym, co się dzieje w projekcie. Członkowie mają informację o zadaniach, które nie są przez nich realizowane, co daje im szeroki punkt widzenia na cały projekt. Mogą komentować poczynania innych, sugerować alternatywne rozwiązania.
+
+\subsubsection*{Sprint}
+Sprint, czyli według Agilowego słownika, iteracja w projekcie, stanowi główny rdzeń całego procesu. Wszystkie najważniejsze założenia Scruma są realizowane właśnie w jego obszarze.
+
+Sprint rozpoczyna się tzw. \textit{Sprint planningiem}, czyli planowaniem sprintu.
+
+\subsubsection*{Sprint Planning}
+
+Celem planowania jest wybranie realizowanych User Stories i rozbicie ich na zadania, często mające formę programistyczną.
+
+Wybór realizowanych Stories jest kluczową rzeczą dla rozpoznawania ryzyka w projekcie i priorytetyzacji. Zespół razem z \textit{Product ownerem} skupia się nad tym, co chce w danym sprincie osiągnąć\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 265}.
+
+Przy wyborze User Stories zespół szacuje, ile jednostek czasu jest w stanie na nie poświęcić, na przykład na podstawie metryk z wcześniejszych sprintów.\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 266}.
+
+User Stories są rozbijane na mniejsze zadania, którym przypisywane są jednostki czasowe przewidziane na ich realizacje. Takie zadania mają na celu pomóc drużynie w rozdzieleniu pracy między członków.
+
+\subsubsection*{Praca podczas Sprintu}
+Po Sprint Planningu drużyna skupia się na realizowaniu zadań. Codziennie odbywają się Daily.
+
+Organizacja pracy zależy tutaj tylko i wyłącznie od zespołu - w zasadach Scruma nie jest to zawarte - tu można zaobserwować wykorzystanie jednego z założeń Agile - \textit{Ludzie i interakcje ponad procesami i narzędziami}. To drużyna decyduje w jaki sposób realizuje zadania.
+
+\subsubsection*{Definiton of done}
+Definition of done \textit{z ang. miara kompletności} to abstrakcyjne pojęcie, które definiowane jest w każdym projekcie w inny sposób. Mówi ono o tym, jakie kryteria powinno spełniać zadanie czy User Story, żeby było określone jako ukończone. Ciężko jest podać dokładną definicję takiego abstrakcyjnego pojęcia.
+
+Przykłady \textit{definition of done}:
+\begin{center}
+    \textit{Każde zadanie programistyczne powinno być odpowiednio przetestowane testami integracyjnymi, jednostkowymi i manualnymi.}
+
+    \textit{Przy wprowadzaniu skomplikowanych zmian do systemu powinna zostać utworzona krótka dokumentacja opisująca sposób działania nowych rozwiązań.}
+
+    \textit{Zadania powinny być uznane za ukończone tylko wtedy, jeżeli wprowadzone w ramach nich zmiany będą dostępne dla klienta na serwerze produkcyjnym.}
+\end{center}
+
+\subsubsection*{Retrospektywa}
+Sprint nie narzuca zasad pracy podczas Sprintu i to zespół decyduje o jego dokładnym przebiegu. Retrospektywa to spotkanie mające na celu usprawniać działanie drużyny podczas trwania Sprintu. Takie spotkanie powinno odbywać się jeden raz w ciągu Sprintu.
+
+Na retrospektywie każdy z członków zespołu może powiedzieć co jego zdaniem udało się zrobić dobrze, a co nie, oraz zasugerować rozwiązania danych problemów.
+
+Rezultatem retrospektywy są \textit{Action Points} \textit{(z ang. punkty akcji)}, czyli konkretne działania bądź zmiany w procesie jakie drużyna zastosuje podczas następnych sprintów, utworzone na podstawie odbytych dyskusji.
 
 \subsection{Kanban}
 \subsubsection{Tablica Kanbanowa}
