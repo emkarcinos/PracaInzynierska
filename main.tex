@@ -210,7 +210,50 @@ Nie pracowałem nigdy w projekcie, w którym wszystko wychodziłoby tak, jak zos
 Metody wodospadowe były określane jako "powtarzalne"\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 31}, bo każdy projekt realizowany był w bardzo podobny sposób. W Agile można zaobserwować "odwrotne" podejście - każdy projekt należy traktować w inny sposób. Specyfika każdego projektu może decydować o tym jak będzie wyglądała praca zespołu. Sam zespół składa się z ludzi, których zachowania i charaktery wcale nie są powtarzalne, jak to zakładało podejście kaskadowe. Każdy projekt realizowany zwinnie ma w pewnym sensie swojego własnego Agile'a, stale rozwijanego jako reakcja na zmiany i problemy. Zespół "doskonali" proces na przestrzeni jego rozwoju.
 
 \subsubsection{Cykl życia projektu}
-\subsection{Porównanie metodyk zwinnych i kaskadowych}
+Cykl życia projektu w metodykach zwinnych można określić hasłem "iteracyjny". Każda iteracja rozpoczyna się określeniem zakresu pracy i kończy gotową, działającą częścią systemu przybliżającą projekt do osiągnięcia większych celów, implementacyjnych i biznesowych. Ilość takich iteracji w projektach zależy od czasu trwania jednej iteracji i całego zakresu systemu.
+
+W wodospadowym schemacie każdy z etapów obejmował całośc sytemu. Wymagania, projekt, implementacja, testy i wdrażanie. W zwinnych metodykach wszystkie te fazy dotyczą jednej iteracji i często wykonywane są asynchronicznie.
+
+\begin{center}
+    \includegraphics[scale=0.35]{agile.png}
+\end{center}
+
+Ryzyka projektowe są stale ewaluowane podczas każdej iteracji. Agile wprowadziło też ideę \textit{Proof of concept} - działający prototyp, który pozwala na dokładne badanie ryzyka wynikającego z proponowanych rozwiązań. Takie prototypy mogą być tworzone w dowolnym momencie pomiędzy iteracjami i to zespół decyduje, kiedy stworzenie \textit{PoC}\footnote{Skrót od Proof of concept} wprowadzi korzyści dla projektu.
+
+Prototypy wcale nie muszą kończyć się powodzeniem - porażka może stanowić dla zespołu pewien rodzaj komunikatu, że wybrane przez nich rozwiązanie jest zbyt ryzykowne i zdecydować się na inne. \textit{PoC} często są do użytku wnętrznego, natomiast nic nie stoi na przeszkodzie prezentacja wyników klientowi - mogą one stanowić dowód trudności rozwiązań przez niego proponowanych i rozpozcąć dyskusję nad zmianą takich wymagań.
+
+\subsubsection*{Zbieranie wymagań - User Stories jako nowe przypadki użycia}
+Przypadki użycia z modelu kaskadowego były bardzo obszerne i mimo swojej złożoności czasami wcale nie dawały jawnego obrazu na to, jakie oczekiwania wobec niego mają odbiorcy. Informacje w nim przekazywane były zupełnie surowe - deweloperzy nie mieli okazji postawić się w roli użytkownika systemu, a analitycy spędzali większość czasu na budowaniu takich use case'ów, które pokryją dokładnie każdy scenariusz zachowania projektowanego systemu.
+
+Zgodnie z hasłem "Działające produkty ponad złożoną dokumentacją" Agile zaproponowało alternatywny sposób zbierania wymagań - \textbf{User Stories}.
+
+Zamiast długich przypadków użycia, User Stories mają być krótkie; ich forma wygląda następująco:
+
+\begin{center}
+    \textit{Jako \textbf{aktor}, chcę \textbf{wykonać czynność}, aby \textbf{osiągnąć pewien cel}.}
+\end{center}
+
+W odróżnieniu od przypadków użycia, które tworzone były przez analityków nie będącymi użytkownikami systemu, User Stories są tworzone we współpracy z klientem czy aktorami w systemie - ich prostota na to pozwala.
+
+User stories stanowią najmniejszą jednostkę pracy dla zespołu.
+
+\paragraph{Przykłady User Stories:}
+
+\begin{center}
+    Jako Pracownik che móc generować raporty, aby zwizualizować swoim klientom, szefowi lub kolegom z zespołu postępy, bądź informacje o postępach nad projektem.
+
+    \paragraph{}
+    Jako Użytkownik chce mieć możliwość zmiany danych osobowych w systemie na wypadek przeprowadzki, lub zmiany ważnych danych.
+
+    \paragraph{}
+    Jako Administrator potrzebuje funkcji zalogowania się jako inny użytkownik w systemie, aby diagnozować konkretne problemy napotkane przez tego użytkownika.
+
+    \paragraph{}
+    Jako Użytkownik chce móc edytować wysłane wiadomości na wypadek pomyłkek, literówek, żeby utrzymać jakość swoich wypowiedzi na wysokim poziomie
+
+\end{center}
+
+Ilość zrealizowanych User Stories na danym etapie projektu stanowi dobrą metrykę faktycznych postępów nad systemem. Reprezentują mierzalną wartość dla klienta, który podczas iteracji jest w stanie oceniać, czy są zrealizowane poprawnie.
 
 \section{Metodyki zwinne}
 
