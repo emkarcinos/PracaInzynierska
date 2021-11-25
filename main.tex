@@ -330,9 +330,27 @@ Na retrospektywie każdy z członków zespołu może powiedzieć co jego zdaniem
 Rezultatem retrospektywy są \textit{Action Points} \textit{(z ang. punkty akcji)}, czyli konkretne działania bądź zmiany w procesie jakie drużyna zastosuje podczas następnych sprintów, utworzone na podstawie odbytych dyskusji.
 
 \subsection{Kanban}
-\subsubsection{Tablica Kanbanowa}
+Kanban w odóżnieniu od Scruma charakteryzuje się ciągłym przepływem zadań (określanym mianem \textit{karteczek}) / User Stories i nie definiuje żadnych ról. Jego głównym celem jest wizualizacja pracy projektowej w zespole. Kanban to "lekka" metodyka, w czystej postaci znajdująca swoje zastosowanie głównie w niewielkich projektach i drużynach. \footnote{https://docs.microsoft.com/en-us/devops/plan/what-is-kanban}.
+
+\subsubsection{Przepływ zadań}
+
+\begin{center}
+    \includegraphics[scale=0.35]{kanban.png}
+\end{center}
+
+Zadania w tablicy Kanbanowej przepływają od lewej kolumny do prawej przy zmianie ich statusu.
+
+\subsubsection*{Project Backlog}
+Podobnie jak w Scrumie, User Stories utworzone na podstawie wymagań projektowych znajdują się w Project Backlogu. W tamtej metodyce wybieranie zadań z Backlogu było skomplikowane i wymagało podejmowania świadomych decyzji, które wpływały na dalszy rozwój projektu. W Kanbanie to zespół na bieżąco decyduje o tym, jakie zadania z Backloga będą realizowane w danej chwili.
+
+\subsubsection*{Skalowalność tablicy Kanbanowej}
+Poza wyróżnionymi głównymi kolumnami wyróżnionymi powyżej, tablicę można dowolnie rozszerzać o nowe kolumny i wiersze. Jeżeli w zespole znajdują się dedykowani testerzy i produkt tego wymaga, możemy dodać nową kolumnę jako następną po "W trakcie wykonywania" i nazwać ją "Testowanie". Testerzy będą zajmowali się zadaniami, które oczekują na testy właśnie z tej kolumny.
+
+Dodawanie kolejnych etapów dla stopnia ukończenia zadania będzie skutkowało rozwojem tablicy o kolejne kolumny. Możemy również stworzyć nowy wiersz (często określany jako \textit{swim lane}), w którym zadania będą przechodzić tą samą ściężkę, ale mogą być wyróżnione ze względu na priorytet, lub kategorię.
 
 \subsection{Scrumban}
+W Scrumie organizacja pracy podczas Sprintu nie była ustalona - to zespół decydował w jaki sposób przechodzi przez cały Sprint. Implementacja Kanbana do organizacji zadań stała się bardzo popularnym rozwiązaniem w implementacjach Scruma i zyskała tytuł \textit{Scrumban}
+
 
 \section{Proces w WMI Adventure}
 
