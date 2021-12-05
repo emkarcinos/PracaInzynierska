@@ -39,7 +39,7 @@ Napisałem tę pracę korzystając ze zdobytej wcześniej wiedzy między innymi 
 oraz z doświadczenia zdobytego podczas WMI Adventure. Omawiam w niej różne metodyki zwinne, porównuje je do dawnego, kaskadowego podejścia przedstawiając ich tło historyczne. Przedstawiam też cały proces w WMI Adventure, wykorzystaną metodykę i narzędzia wspomagające.
 
 \subsection{Tematyka}
-W zespołach organizacja pracy projektowej jest kluczowa dla kontrolowanego i przewidywalnego rozwoju, w tym przypadku, oprogramowania komputerowego. W systemach o mniejszym stopniu skomplikowania
+Organizacja pracy projektowej w zespołach jest kluczowa dla kontrolowanego i przewidywalnego rozwoju, w tym przypadku, oprogramowania komputerowego. W systemach o mniejszym stopniu skomplikowania
 i jednoosobowej sile roboczej wystarczy "tylko programowanie". W miarę poszerzania skali projektu i zwiększania ilości członków zespołu, wytwarzanie oprogramowania staje się chaotyczne i niekontrolowane.
 
 Klient, dla którego realizowany jest projekt potrzebuje wspomnianej przewidywalności. Chce chociażby wiedzieć, ile czasu potrwa realizacja jego zlecenia i przede wszystkim jaki będzie jego koszt. Zespół nie jest w stanie
@@ -64,8 +64,8 @@ Wybór metodyki ma zatem ogromny wpływ na pracę zespołu - sposobów na zreali
 
 Metodyka pracy mówi nam zatem \textit{jak} wytwarzać oprogramowanie.
 
-\subsection{Metodyki kaskadowe}
-Początki korporacyjnego świata projektów informatycznych wykorzystywały metodykę kaskadową. Metodyki te mogły wywodzić się z doświadczenia inżynieryjnego zdobytego w fabrykach.\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 27} Linia produkcyjna w fabryce jest
+\subsection{Metody kaskadowe}
+Początki korporacyjnego świata projektów informatycznych wykorzystywały metody zwane ogólnie kaskadowymi. Mogły wywodzić się z doświadczenia inżynieryjnego zdobytego w fabrykach.\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 27} Linia produkcyjna w fabryce jest
 stałym elementem i nie jest odporna na zmiany. Półprodukt przechodzi z jednej linii do drugiej. Nie ma możliwości, żeby gotowy przedmiot opuścił fabrykę bez przejścia każdego etapu bez jakiejkolwiek porażki.
 Każdy błąd popełniony przez pracowników na linii produkcyjnej jest katastrofalny i nie jest tolerowany.
 
@@ -75,7 +75,7 @@ Drużyny w takich metodykach często składają się dużej liczby członków od
 
 Przykładem metodyki kaskadowej jest \textbf{Rational unified process (RUP)}
 
-\subsubsection{Cykl życia projektu - Wodospad}
+\subsubsection{Cykl życia projektu - Kaskada}
 \begin{center}
     \includegraphics[scale=0.25]{waterfall_diagram.png}
 \end{center}
@@ -180,7 +180,9 @@ Po wdrożeniu system jest dalej utrzymywany według wcześniej ustalonych zasad,
 \subsection{Agile}
 Agile to rodzina metod, która zaczęła rozwijać się na przestrzeni lat 80-tych i 90-tych ubiegłego stulecia jako opozycja starego podejścia metodyk kaskadowych\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 33}, jako, w pewnym sensie, nauka na błędach. Deweloperzy byli zmęczeni wielkimi korporacyjnymi strukturami stojącymi za kaskadowym procesem, które tłumiły wszelkie indywidualne inicjatywy na rzecz "decyzji z góry". Kreatywność nie była cechą cenioną. Programiści nie musieli myśleć - ich zadaniem było realizowanie architektury zaplanowanej przez architekta. Nikt nie zastanawiał się nad tym, czy zadania im powierzone mają sens.
 
-Agile jest w pewnym sensie procesem odwrotnym do metodyk kaskadowych\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 31}. Wodospad, czyli jeden etap po drugim - w Agile wszystkie etapy dzieją się tak naprawdę jednocześnie. Stały schemat metody pracy i brak reakcji na błędy został zastąpiony ciągłymi zmianami i budowaniem procesu w oparciu o niepowodzenia. Ba, zmiany stały się nieodłączną częścią całego procesu. Kontakt z klientem jest bardzo częsty i aktywny przez cały. Indywidualne inicjatywy członków zespołu budują cały proces. Nowe funkcjonalności systemu są testowane na bieżąco. Metodologie Agile idealnie podsumowuje \textbf{Manifest Agile (Agile Manifesto)}
+Mimo wszystko Agile nie miał siły przebicia i przez wielu uważany był za żart. Dopiero na początku ówczesnego tysiąclecia Agile zaczynał zyskiwać na popularności, natomiast w praktyce zaczął być stosowany dopiero w okolicach roku 2010.
+
+Agile jest w pewnym sensie procesem odwrotnym do metodyk kaskadowych\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 31}. Kaskada, czyli jeden etap po drugim - w Agile wszystkie etapy dzieją się tak naprawdę jednocześnie. Stały schemat metody pracy i brak reakcji na błędy został zastąpiony ciągłymi zmianami i budowaniem procesu w oparciu o niepowodzenia. Ba, zmiany stały się nieodłączną częścią całego procesu. Kontakt z klientem jest bardzo częsty i aktywny przez cały. Indywidualne inicjatywy członków zespołu budują cały proces. Nowe funkcjonalności systemu są testowane na bieżąco. Metodologie Agile idealnie podsumowuje \textbf{Manifest Agile (Agile Manifesto)}
 
 \subsubsection{Manifest Agile}
 
@@ -198,7 +200,7 @@ Agile jest w pewnym sensie procesem odwrotnym do metodyk kaskadowych\footnote{M.
 Największy wpływ na rozwój projektu mają właśnie ludzie - to dzięki ich kreatywności i zaangażowaniu skomplikowana maszyna projektowa idzie do przodu. Narzucanie ścisłych zasad procesowych ogranicza możliwości zespołu, a skomplikowane narzędzia wcale nie ułatwiają im pracy.
 
 \subsubsection*{Działające produkty ponad złożoną dokumentacją}
-Tutaj mowa o wspomnianym wcześniej podejściu odwrotnym do wodospadu - wytwarzając skomplikowane oprogramowanie jako jedną całość tracimy możliwość wprowadzania zmian w trakcie projektu - Agile mówi, żeby poszczególne etapy projektu były małe i kończyły się jakąś działającą częścią systemu. Dzięki temu możemy raportować klientowi postępy pracy i łatwo dostosowywać się do jego uwag czy sugestii. Inkrementacyjne wytwarzanie oprogramowania umożliwia też stałe testowanie i bardziej realistyczne określanie dalszych ryzyk w projekcie.
+Tutaj mowa o wspomnianym wcześniej podejściu odwrotnym do kaskadowego - wytwarzając skomplikowane oprogramowanie jako jedną całość tracimy możliwość wprowadzania zmian w trakcie projektu - Agile mówi, żeby poszczególne etapy projektu były małe i kończyły się jakąś działającą częścią systemu. Dzięki temu możemy raportować klientowi postępy pracy i łatwo dostosowywać się do jego uwag czy sugestii. Inkrementacyjne wytwarzanie oprogramowania umożliwia też stałe testowanie i bardziej realistyczne określanie dalszych ryzyk w projekcie.
 
 \subsubsection*{Współpraca z klientem ponad negocjacją kontraktu}
 W modelu kaskadowym wkład w projekt klienta był tak naprawdę znikomy. Na początku projektu podczas zbierania wymagań decydowano tak naprawdę czy projekt ma sens, czy nie. Zespół obawiał się wszelkich zmian ze strony klienta po zatwierdzeniu wymagań. W Agile klient jest stale zaangażowany w rozwój projektu. Wymagania zawsze mogą ulegać zmianie i iteracyjny rozwój oprogramowania jest na nie otwarty. Satysfakcja klienta również jest dużo wyższa, stałe postępy w pracy nad projektem są dla niego widoczne.
@@ -207,12 +209,12 @@ W modelu kaskadowym wkład w projekt klienta był tak naprawdę znikomy. Na pocz
 Nie pracowałem nigdy w projekcie, w którym wszystko wychodziłoby tak, jak zostało to na początku zaplanowane. W Agile zespół powinien być stale otwarty na pojawiające się zmiany i dostosowywać swoje zmiany pracując razem z nimi.
 
 \paragraph{}
-Metody wodospadowe były określane jako "powtarzalne"\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 31}, bo każdy projekt realizowany był w bardzo podobny sposób. W Agile można zaobserwować "odwrotne" podejście - każdy projekt należy traktować w inny sposób. Specyfika każdego projektu może decydować o tym jak będzie wyglądała praca zespołu. Sam zespół składa się z ludzi, których zachowania i charaktery wcale nie są powtarzalne, jak to zakładało podejście kaskadowe. Każdy projekt realizowany zwinnie ma w pewnym sensie swojego własnego Agile'a, stale rozwijanego jako reakcja na zmiany i problemy. Zespół "doskonali" proces na przestrzeni jego rozwoju.
+Metody kaskadowe były określane jako "powtarzalne"\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 31}, bo każdy projekt realizowany był w bardzo podobny sposób. W Agile można zaobserwować "odwrotne" podejście - każdy projekt należy traktować w inny sposób. Specyfika każdego projektu może decydować o tym jak będzie wyglądała praca zespołu. Sam zespół składa się z ludzi, których zachowania i charaktery wcale nie są powtarzalne, jak to zakładało podejście kaskadowe. Każdy projekt realizowany zwinnie ma w pewnym sensie swojego własnego Agile'a, stale rozwijanego jako reakcja na zmiany i problemy. Zespół "doskonali" proces na przestrzeni jego rozwoju.
 
 \subsubsection{Cykl życia projektu}
 Cykl życia projektu w metodykach zwinnych można określić hasłem "iteracyjny". Każda iteracja rozpoczyna się określeniem zakresu pracy i kończy gotową, działającą częścią systemu przybliżającą projekt do osiągnięcia większych celów, implementacyjnych i biznesowych. Ilość takich iteracji w projektach zależy od czasu trwania jednej iteracji i całego zakresu systemu.
 
-W wodospadowym schemacie każdy z etapów obejmował całośc sytemu. Wymagania, projekt, implementacja, testy i wdrażanie. W zwinnych metodykach wszystkie te fazy dotyczą jednej iteracji i często wykonywane są asynchronicznie.
+W kaskadowym schemacie każdy z etapów obejmował całośc sytemu. Wymagania, projekt, implementacja, testy i wdrażanie. W zwinnych metodykach wszystkie te fazy dotyczą jednej iteracji i często wykonywane są asynchronicznie.
 
 \begin{center}
     \includegraphics[scale=0.35]{agile.png}
