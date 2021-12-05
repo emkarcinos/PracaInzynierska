@@ -2,7 +2,12 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{bibliography.bib}
 \usepackage{graphicx}
 \graphicspath{ {./assets/} }
 \hypersetup{
@@ -65,7 +70,7 @@ Wybór metodyki ma zatem ogromny wpływ na pracę zespołu - sposobów na zreali
 Metodyka pracy mówi nam zatem \textit{jak} wytwarzać oprogramowanie.
 
 \subsection{Metody kaskadowe}
-Początki korporacyjnego świata projektów informatycznych wykorzystywały metody zwane ogólnie kaskadowymi. Mogły wywodzić się z doświadczenia inżynieryjnego zdobytego w fabrykach.\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 27} Linia produkcyjna w fabryce jest
+Początki korporacyjnego świata projektów informatycznych wykorzystywały metody zwane ogólnie kaskadowymi. Mogły wywodzić się z doświadczenia inżynieryjnego zdobytego w fabrykach.\cite{scrum} Linia produkcyjna w fabryce jest
 stałym elementem i nie jest odporna na zmiany. Półprodukt przechodzi z jednej linii do drugiej. Nie ma możliwości, żeby gotowy przedmiot opuścił fabrykę bez przejścia każdego etapu bez jakiejkolwiek porażki.
 Każdy błąd popełniony przez pracowników na linii produkcyjnej jest katastrofalny i nie jest tolerowany.
 
@@ -144,6 +149,7 @@ W przypadku, gdy nie zostanie wprowadzona \textit{nazwa projektu}, projekt nie z
 \subsubsection*{5a. Błąd połączenia z serwerem lub błąd bazy danych}
 Wpis o nowym projekcie nie zostaje dodany. Aplikacja kliencka informuje o błędzie połączenia z serwerem i konieczności skontakowania się z administratorem
 
+
 \subsubsection*{5b. Projekt już istnieje}
 Gdy system bazodanowy wykryje, że projekt o tej samej nazwie istnieje już w bazie, wpis o nim nie jest dodawany. Interfejs sygnalizuje o błędzie i konieczności zmiany nazwy projektu.
 
@@ -178,11 +184,11 @@ System jest przygotowywany do oddania klientowi. Administratorzy systemowi wdra�
 Po wdrożeniu system jest dalej utrzymywany według wcześniej ustalonych zasad, poprawiane są błędy, które wcześniej nie zostały wykryte. System nie powinien być już dalej uzupełniany o nowe funkcjonalności.
 
 \subsection{Agile}
-Agile to rodzina metod, która zaczęła rozwijać się na przestrzeni lat 80-tych i 90-tych ubiegłego stulecia jako opozycja starego podejścia metodyk kaskadowych\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 33}, jako, w pewnym sensie, nauka na błędach. Deweloperzy byli zmęczeni wielkimi korporacyjnymi strukturami stojącymi za kaskadowym procesem, które tłumiły wszelkie indywidualne inicjatywy na rzecz "decyzji z góry". Kreatywność nie była cechą cenioną. Programiści nie musieli myśleć - ich zadaniem było realizowanie architektury zaplanowanej przez architekta. Nikt nie zastanawiał się nad tym, czy zadania im powierzone mają sens.
+Agile to rodzina metod, która zaczęła rozwijać się na przestrzeni lat 80-tych i 90-tych ubiegłego stulecia jako opozycja starego podejścia metodyk kaskadowych\cite{scrum}, jako, w pewnym sensie, nauka na błędach. Deweloperzy byli zmęczeni wielkimi korporacyjnymi strukturami stojącymi za kaskadowym procesem, które tłumiły wszelkie indywidualne inicjatywy na rzecz "decyzji z góry". Kreatywność nie była cechą cenioną. Programiści nie musieli myśleć - ich zadaniem było realizowanie architektury zaplanowanej przez architekta. Nikt nie zastanawiał się nad tym, czy zadania im powierzone mają sens.
 
 Mimo wszystko Agile nie miał siły przebicia i przez wielu uważany był za żart. Dopiero na początku ówczesnego tysiąclecia Agile zaczynał zyskiwać na popularności, natomiast w praktyce zaczął być stosowany dopiero w okolicach roku 2010.
 
-Agile jest w pewnym sensie procesem odwrotnym do metodyk kaskadowych\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 31}. Kaskada, czyli jeden etap po drugim - w Agile wszystkie etapy dzieją się tak naprawdę jednocześnie. Stały schemat metody pracy i brak reakcji na błędy został zastąpiony ciągłymi zmianami i budowaniem procesu w oparciu o niepowodzenia. Ba, zmiany stały się nieodłączną częścią całego procesu. Kontakt z klientem jest bardzo częsty i aktywny przez cały. Indywidualne inicjatywy członków zespołu budują cały proces. Nowe funkcjonalności systemu są testowane na bieżąco. Metodologie Agile idealnie podsumowuje \textbf{Manifest Agile (Agile Manifesto)}
+Agile jest w pewnym sensie procesem odwrotnym do metodyk kaskadowych\cite{scrum} Kaskada, czyli jeden etap po drugim - w Agile wszystkie etapy dzieją się tak naprawdę jednocześnie. Stały schemat metody pracy i brak reakcji na błędy został zastąpiony ciągłymi zmianami i budowaniem procesu w oparciu o niepowodzenia. Ba, zmiany stały się nieodłączną częścią całego procesu. Kontakt z klientem jest bardzo częsty i aktywny przez cały. Indywidualne inicjatywy członków zespołu budują cały proces. Nowe funkcjonalności systemu są testowane na bieżąco. Metodologie Agile idealnie podsumowuje \textbf{Manifest Agile (Agile Manifesto)}
 
 \subsubsection{Manifest Agile}
 
@@ -193,7 +199,7 @@ Agile jest w pewnym sensie procesem odwrotnym do metodyk kaskadowych\footnote{M.
 
     Współpraca z klientem ponad negocjacją kontraktu
 
-    Reagowanie na zmiany ponad trzymaniem się planu\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 34}
+    Reagowanie na zmiany ponad trzymaniem się planu\cite{scrum}
 \end{center}
 
 \subsubsection*{Ludzie i interakcje ponad procesami i narzędziami}
@@ -209,7 +215,7 @@ W modelu kaskadowym wkład w projekt klienta był tak naprawdę znikomy. Na pocz
 Nie pracowałem nigdy w projekcie, w którym wszystko wychodziłoby tak, jak zostało to na początku zaplanowane. W Agile zespół powinien być stale otwarty na pojawiające się zmiany i dostosowywać swoje zmiany pracując razem z nimi.
 
 \paragraph{}
-Metody kaskadowe były określane jako "powtarzalne"\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 31}, bo każdy projekt realizowany był w bardzo podobny sposób. W Agile można zaobserwować "odwrotne" podejście - każdy projekt należy traktować w inny sposób. Specyfika każdego projektu może decydować o tym jak będzie wyglądała praca zespołu. Sam zespół składa się z ludzi, których zachowania i charaktery wcale nie są powtarzalne, jak to zakładało podejście kaskadowe. Każdy projekt realizowany zwinnie ma w pewnym sensie swojego własnego Agile'a, stale rozwijanego jako reakcja na zmiany i problemy. Zespół "doskonali" proces na przestrzeni jego rozwoju.
+Metody kaskadowe były określane jako "powtarzalne"\cite{scrum}, bo każdy projekt realizowany był w bardzo podobny sposób. W Agile można zaobserwować "odwrotne" podejście - każdy projekt należy traktować w inny sposób. Specyfika każdego projektu może decydować o tym jak będzie wyglądała praca zespołu. Sam zespół składa się z ludzi, których zachowania i charaktery wcale nie są powtarzalne, jak to zakładało podejście kaskadowe. Każdy projekt realizowany zwinnie ma w pewnym sensie swojego własnego Agile'a, stale rozwijanego jako reakcja na zmiany i problemy. Zespół "doskonali" proces na przestrzeni jego rozwoju.
 
 \subsubsection{Cykl życia projektu}
 Cykl życia projektu w metodykach zwinnych można określić hasłem "iteracyjny". Każda iteracja rozpoczyna się określeniem zakresu pracy i kończy gotową, działającą częścią systemu przybliżającą projekt do osiągnięcia większych celów, implementacyjnych i biznesowych. Ilość takich iteracji w projektach zależy od czasu trwania jednej iteracji i całego zakresu systemu.
@@ -261,17 +267,17 @@ Ilość zrealizowanych User Stories na danym etapie projektu stanowi dobrą metr
 
 \subsection{Scrum}
 
-Scrum sam w sobie nie jest tak naprawdę metotyką, a bardziej \textit{frameworkiem}\footnote{z ang. szkielet, struktura, model} opisujący pewne praktyki opisujące jak budować taki proces\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 53}. Znamy zasady gry, ale sposób na jej zwycięstwo zależy już od nas, czy w przypadku projektów informatycznych, od naszego zespołu. Scrum to zatem w pewnym sensie metoda działania.
+Scrum sam w sobie nie jest tak naprawdę metotyką, a bardziej \textit{frameworkiem}\footnote{z ang. szkielet, struktura, model} opisujący pewne praktyki opisujące jak budować taki proces\cite{scrum}. Znamy zasady gry, ale sposób na jej zwycięstwo zależy już od nas, czy w przypadku projektów informatycznych, od naszego zespołu. Scrum to zatem w pewnym sensie metoda działania.
 
 \subsubsection{Role w zespole}
 
 \subsubsection*{Product Owner - właściciel produktu}
 \textit{Właściwiel produktu}, jak sama nazwa wskazuje, odpowiada za produkt tworzony przez zespół. Jego głównymi zadanami jest dbanie o \textit{Product backlog} i o wartość pracy zespołu.
 
-W odróżnieniu od metod kaskadowych, gdzie rola \textit{manedżera projektu} czy \textit{analityka} była rozłączna od całego zespołu, tutaj Product Owner jest jego częścią. "Opiekuje" się produktem tworzonym przez zespół. Wymagania nie są już tworzone tylko przez klienta i spisywane przez analityków, zespół tworzy je razem z Product Ownerem.\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 78}
+W odróżnieniu od metod kaskadowych, gdzie rola \textit{manedżera projektu} czy \textit{analityka} była rozłączna od całego zespołu, tutaj Product Owner jest jego częścią. "Opiekuje" się produktem tworzonym przez zespół. Wymagania nie są już tworzone tylko przez klienta i spisywane przez analityków, zespół tworzy je razem z Product Ownerem.\cite{scrum}
 \subsubsection*{Scrum Master}
 
-\textit{Scrum Master} jest pewnego rodzaju strażnikiem całego zespołu Scrumowego. Dba on o to, aby zespół mógł pracować bez żadnych zakłóceń zewnętrznych, takich jak ingerencja wyższych kierowników, czy problemy firmy. Jest też swojego rodzaju strażnikiem procesu, ale rozumianym w mniej restrykcyjny sposób - dba o to, żeby wszyscy członkowie zespołu rozumieli tą metodykę i poprawnie ją stosowali. Wspomaga jego rozwój, dba o relacje między członkami zespołu. Asystuje Product Owner'a w kwestiach produktowych. Sam Scrum Master nie powinien uczestniczyć w programistycznych dyskusjach.\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 62-66}
+\textit{Scrum Master} jest pewnego rodzaju strażnikiem całego zespołu Scrumowego. Dba on o to, aby zespół mógł pracować bez żadnych zakłóceń zewnętrznych, takich jak ingerencja wyższych kierowników, czy problemy firmy. Jest też swojego rodzaju strażnikiem procesu, ale rozumianym w mniej restrykcyjny sposób - dba o to, żeby wszyscy członkowie zespołu rozumieli tą metodykę i poprawnie ją stosowali. Wspomaga jego rozwój, dba o relacje między członkami zespołu. Asystuje Product Owner'a w kwestiach produktowych. Sam Scrum Master nie powinien uczestniczyć w programistycznych dyskusjach.\cite{scrum}
 
 \subsubsection*{Deweloper, czyli "zwykły" członek zespołu}
 Członkowie zespołu Scrumowego to nie koniecznie tylko programiści. W zależności od tego, czego potrzebuje zespół do realizowania User Stories mogą się w nim znaleźć takie role jak grafik, tester, projektant interfejsu, czy nawet tłumacz, jeżeli produkt tego wymaga. Ich rolą jest realizowanie User Storiesów. W odróżnieniu od programistów czy testerów w kaskadowym podejściu, zespół uczestniczy w spotkaniach produktowych i jest w stanie wpłynąć na to, jak wyglądają wymagania projektowe. Drużyna jest samoorganizacyjna, to oni decydują o tym, w jaki sposób wykonują zadania podczas Sprintu.
@@ -301,9 +307,9 @@ Sprint rozpoczyna się tzw. \textit{Sprint planningiem}, czyli planowaniem sprin
 
 Celem planowania jest wybranie realizowanych User Stories i rozbicie ich na zadania, często mające formę programistyczną.
 
-Wybór realizowanych Stories jest kluczową rzeczą dla rozpoznawania ryzyka w projekcie i priorytetyzacji. Zespół razem z \textit{Product ownerem} skupia się nad tym, co chce w danym sprincie osiągnąć\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 265}.
+Wybór realizowanych Stories jest kluczową rzeczą dla rozpoznawania ryzyka w projekcie i priorytetyzacji. Zespół razem z \textit{Product ownerem} skupia się nad tym, co chce w danym sprincie osiągnąć\cite{scrum}.
 
-Przy wyborze User Stories zespół szacuje, ile jednostek czasu jest w stanie na nie poświęcić, na przykład na podstawie metryk z wcześniejszych sprintów.\footnote{M. Chrapko - Scrum - o zwinnym zarządzaniu projektami, 2015, Helion, s. 266}.
+Przy wyborze User Stories zespół szacuje, ile jednostek czasu jest w stanie na nie poświęcić, na przykład na podstawie metryk z wcześniejszych sprintów.\cite{scrum}.
 
 User Stories są rozbijane na mniejsze zadania, którym przypisywane są jednostki czasowe przewidziane na ich realizacje. Takie zadania mają na celu pomóc drużynie w rozdzieleniu pracy między członków.
 
@@ -332,7 +338,7 @@ Na retrospektywie każdy z członków zespołu może powiedzieć co jego zdaniem
 Rezultatem retrospektywy są \textit{Action Points} \textit{(z ang. punkty akcji)}, czyli konkretne działania bądź zmiany w procesie jakie drużyna zastosuje podczas następnych sprintów, utworzone na podstawie odbytych dyskusji.
 
 \subsection{Kanban}
-Kanban w odóżnieniu od Scruma charakteryzuje się ciągłym przepływem zadań (określanym mianem \textit{karteczek}) / User Stories i nie definiuje żadnych ról. Jego głównym celem jest wizualizacja pracy projektowej w zespole. Kanban to "lekka" metodyka, w czystej postaci znajdująca swoje zastosowanie głównie w niewielkich projektach i drużynach. \footnote{https://docs.microsoft.com/en-us/devops/plan/what-is-kanban}.
+Metodyka ta została stworzona przez Taiichiego Ohno pracującego w japońskiej firmie *Toyota*. \cite{kanban}Kanban w odóżnieniu od Scruma charakteryzuje się ciągłym przepływem zadań (określanym mianem \textit{karteczek}) / User Stories i nie definiuje żadnych ról. Jego głównym celem jest wizualizacja pracy projektowej w zespole. Kanban to "lekka" metodyka, w czystej postaci znajdująca swoje zastosowanie głównie w niewielkich projektach i drużynach. \cite{kanban2}.
 
 \subsubsection{Przepływ zadań}
 
@@ -363,5 +369,7 @@ W Scrumie organizacja pracy podczas Sprintu nie była ustalona - to zespół dec
 \section{Wykorzystanie GitHub Projects jako narzędzia do zarządzania procesem}
 
 \section{Ewolucja}
+
+\printbibliography
 
 \end{document}
