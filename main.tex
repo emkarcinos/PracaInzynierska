@@ -2,8 +2,9 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-\usepackage[most]{tcolorbox}
+\usepackage[breakable, most]{tcolorbox}
 \tcbset{
+    breakable,
     frame code={}
     center title,
     left=0pt,
@@ -17,7 +18,6 @@
     boxsep=5pt,
     arc=0pt,outer arc=0pt,
     }
-
 \usepackage[
 backend=biber,
 style=alphabetic,
@@ -136,8 +136,6 @@ jest data wprowadzenia projektu do systemu, generowany jest wpis w historii. Na 
 kopia zapasowa z wpisem do bazy. Projekt jest widoczny na tablicy pracowników i tablicy szefa. System jest w
 gotowości do przydzielenia ról i zadań pracownikom.
 
-\end{tcolorbox}
-\begin{tcolorbox}
 \subsubsection*{Scenariusz główny}
 \begin{enumerate}
     \item Podczas rozmowy z klientem, szef otwiera moduł tworzenia projektu na swoim komputerze PC poprzez aplikacę webową
@@ -166,8 +164,6 @@ danych z aplikacji klienckiej do serwera i bazy danych
     \item Gdy system nie powraca do stanu gotowości, szef musi poinformować administratora o błędzie w systemie. Administrator podejmuje odpowiednie kroki, aby przywrócić system do działania
 \end{enumerate}
 
-\end{tcolorbox}
-\begin{tcolorbox}
 \subsubsection*{2. Niekompletne dane}
 W przypadku, gdy nie zostanie wprowadzona \textit{nazwa projektu}, projekt nie zostanie dodany, szef zostanie poinformowany o błędzie.
 
@@ -392,14 +388,180 @@ W Scrumie organizacja pracy podczas Sprintu nie była ustalona - to zespół dec
 
 
 \section{Proces w WMI Adventure}
+WMI Adventure od samego początku nie miał być projektem komercyjnym. Dostępność członków zespołu nie pozwalała na stosowanie na przykład czystej metodyki Scrum. Codziennie spotkania (daily) nie wnosiłyby niczego dla zespołu - często zdarzałyby się sytuacje, gdzie zespół nic nie zrobił przez ostatnie 24 godziny. 
+
+Dodatkowo specyfika projektu nie definiuje konkretnego klienta. WMI Adventure to gra przeznaczona dla wąskiej społeczności wydziału wywodząca się z naszego własnego pomysłu. Współpraca z potencjalnymi użytkownikami systemu wyglądała w zupełnie inny sposób, gdyż to my proponowaliśmy produkt i jego specyfikację licząc jedynie na opinię klientów.
 
 \subsection{Metodyka}
+Scrumban był metodyką najbardziej zbliżoną do naszych potrzeb i własnie na niego padł wybór. Nie podążaliśmy ściśle za proponowanymi zasadami - wykorzystaliśmy zwinne podejście także do samej metodyki modyfikując ją z każdą kolejną iteracją.
+
+Pierwszą wprowadzoną zmianą już w pierwszym sprincie to daily co drugi dzień. Wspominałem już o ograniczonej dostępności czasowej członków zespołu, stąd ta decyzja. Zespół doszedł do wniosku, że robiąc takie daily codziennie tracilibyśmy czas, który moglibyśmy poświęcić na pracę indywidualną.
+
+Taka wersja metodyki zapewniła nam dobry balans między czasem poświęconym na proces a pracą nad funkcjonalnościami w projekcie. Dołącznie do Scruma tablicy Kanbanowej zapewniło nam też organizację mniejszych zadań wewnątrz każdego sprintu. 
+
 \subsection{Role w zespole}
+Zespół liczył zaledwie 4 członków, więc nie byliśmy w stanie rozdzielić całkowicie ról deweloperów i tych wyróżnionych przez Scrum. Scrum Master i Product Owner pełnili zatem też role programistyczne.
+
+\begin{itemize}
+    \item \textbf{Mateusz Tylka} - Product Owner, deweloper - frontend
+    \item \textbf{Dawid Korybalski} - deweloper - frontend
+    \item \textbf{Michał Czekański} - deweloper, DevOps - backend
+    \item \textbf{Marcin Kostrzewski} - Scrum Master, deweloper, DevOps - backend i UI/UX
+\end{itemize}
+
+Można zauważyć, że w zespole można wyróżnić dwa mniejsze dwuosobowe zespoły podzielone ze względu na zakres prac programistycznych; tj. zespół backendowy i frontendowy. Podział ten był jednak jedynie symboliczny - zespół pracował zawsze razem, realizując te same cele realizując zadania z tej samej tablicy. Dwie siły były wyróżnione ze względu na naszye kompetencje i podział był naturalny.
+
+Podczas trwania całego projektu role te coraz bardziej się zacierały. Role backendowe i frontendowe przekształcały się na bardziej wszechstronne i zaangażowanie w produkt i proces rozmyło rolę Product Ownera i Scrum Mastera na wszystkich członków zespołu.
+
+Od października, czyli mniej więcej w połowie trwania projektu zespół zmniejszył się do trzech członków i skład od tego czasu prezentował się następująco:
+\begin{itemize}
+    \item \textbf{Mateusz Tylka} - Product Owner, deweloper - frontend i UI/UX
+    \item \textbf{Michał Czekański} - deweloper, DevOps - fullstack i UI/UX
+    \item \textbf{Marcin Kostrzewski} - Scrum Master, deweloper, DevOps - fullstack i UI/UX
+\end{itemize}
+
 \subsection{User Stories}
+\begin{tcolorbox}
+W każdym story pomijamy aktora, jest napisane w nagłówku kto nim jest. Dodatkowo historie podzielone są na sekcję będące częściami systemu.
+
+\begin{enumerate}
+    \item Użytkownik: \textbf{Student}
+    \begin{enumerate}
+        \item Tryb Battle
+        \begin{enumerate}
+            \item Chcę w głównym widoku wejść w Tryb Battle i zobaczyć listę graczy, których mogę wyzwać na pojedynek oraz tych których nie mogę i chce wiedzieć dlaczego nie mogę.
+            \item Chcę mieć możliwość wyboru przeciwnika, aby mieć kontrolę nad tym, z kim będę walczył.
+            \item Po przejściu w Tryb Battle chcę móc wyszukać użytkowników po nazwie, aby stoczyć pojedynek z konkretnym studentem.
+            \item Oprócz wyszukiwania przeciwników, chcę aby aplikacja pokazała mi kilku sugerowanych użytkowników do walki, abym nie musiał za każdym razem wyszukiwać konkretnych graczy.
+            \item Po wyborze przeciwnika chciałbym zobaczyć jego profil, żeby móc przygotować się do walki.
+            \item W widoku profilu przeciwnika chciałbym dowiedzieć się o jego procencie wygranych, punktach zdobytych w aplikacji, pozycji w rankingach, aktualnym semestrze, żeby móc ocenić swoje szanse na wygraną.
+            \item Po wyborze przeciwnika chcę mieć możliwość powrotu i wyboru innego przeciwnika, aby uniknąć nieprzemyślanych decyzji i ewentualnych missclicków.
+            \item Chcę widzieć przebieg walki, żeby czerpać z niej satysfakcję i zobaczyć jak działają moje karty.
+            \item Przed rozpoczęciem i w trakcie walki chcę mieć możliwość fast-forwardu, czyli automatycznego rozegrania pojedynku bez wizualizacji, żeby szybko dowiedzieć się o jej wyniku i nie tracić czasu.
+            \item Po wygranej lub przegranej walce chcę zobaczyć skutki pojedynku, żeby wiedzieć co się stało i ile zdobyłem/straciłem punktów.
+            \item Chcę, aby przebieg walki, czyli między innymi karty moje i przeciwnika, został zapisany. Chcę móc mieć dostęp do kilku ostatnich historycznych pojedynków, żeby ocenić dobór swoich kart i przygotować się lepiej do przyszłych walk.
+            \item Nie chcę, żeby jeden przeciwnik atakował mnie cały czas znając moją talię, aby uniknąć masowych strat punktów.
+            \item Przed każdą walką chcę mieć dodatkowo możliwość łatwego przejścia do mojej talii kart, aby dostosować ją do konkretnej walki bez konieczności powrotów do poprzednich menu.
+            \item Po przejściu w Tryb Battle w pierwszym widoku chcę zobaczyć moje statystyki z tego trybu, takie jak punkty, stoczone walki, wygrane walki razem z procentem wygranych, aby po każdej walce widzieć, jak zmienia się moja pozycja w rankingu bez potrzeby przechodzenia do innych widoków.
+            \item Po przejściu w Tryb Battle w pierwszym widoku chcę zobaczyć moją talię oraz mieć możliwość przejścia do zmiany talii, by móc zweryfikować jej skład i ewentualnie zmienić ją przed pojedynkami.
+            \item Po skończonej walce chcę mieć możliwość powrotu do Trybu Battle, żeby nie musieć przeklikiwać przez całą aplikację.
+            \item Chcę aby system walki kartami był zbalansowany i atraktyjny, żebym cieszył się z gry i nie czuł, że wygrywanie jest zbyt łatwe, lub zbyt trudne posiadając daną ilość kart i bedąc na X semestrze.
+            \item Chcę żeby tylko osoby o podobnym poziomie bitewnym co mój mogły mnie wyzywać na pojedynki, abym nie mógł łatwo wygrywać ciągle z tą samą osobą, lub jakaś mocniejsza osoba nie mogła w kółko nabijać sobie na mnie punktów.
+            \item Chcę aby konkretne karty były atrakcyjne, miały informatyczny przekaz i sensowne działanie, żeby cieszyć się z pojedynkowania, układania talii oraz kolekcjonowania kart.
+            \item Chcę, aby było jaśnie określone, czy karty mogą mi się przydać do czegoś więcej niż tylko do Trybu Battle i mieć jasny przekaz do czego jeszcze mogę ich użyć lub jakie dają korzyści, żeby wiedzieć co mogę z nimi zrobić i cieszyć się z aplikacji.
+        \end{enumerate}
+        \item Tryb Adventure
+        \begin{enumerate}
+            \item Chcę w głównym widoku wejść w Tryb Adventure i zobaczyć wszystkie historie wyróżnione na te dostępne do przejścia, te które przeszedłem i te które nie są jeszcze dostępne.
+            \item Chcę móc "przyśpieszyć" wyświetlanie napisów dialogowych, bo mogę czytać je szybciej i nie chcę tracić niepotrzebnie czasu.
+            \item Chcę mieć możliwość powrotu do historii, które już przeszedłem, aby jeszcze raz je sobie przypomnieć.
+            \item W dowolnym momencie chcę móc wyjść z trybu, żeby móc skupić się na innej rzeczy, którą w danej chwili chcę zrobić.
+            \item Po wyjściu z historii chcę mieć możliwość powrotu do konkretnego momentu, w którym skończyłem, żeby nie musieć oglądać dwa razy tego samego.
+            \item Jeżeli zdobędę nową kartę, chcę być o tym wyraźnie powiadomionym, zobaczyć czym ta karta jest, żeby dowiedzieć się, że w mojej talii pojawiła się nowa bez konieczności wychodzenia z trybu.
+            \item Chcę wyraźnie widzieć, która postać mówi aktualny dialog, żeby nie gubić się w treści.
+            \item Chcę cały czas widzieć pasek postępu w historii, którą przechodzę, żeby móc ocenić ilość czasu jaką muszę poświęcić na ukończenie jej.
+            \item Chcę mieć możliwość pokonywania kluczowych postaci w Trybie Adventure, żeby czerpać satysfakcję z progresowania w aplikacji.
+            \item Przed walką z bossem chcę mieć możliwość zmiany mojej talii, żeby nie musieć wychodzić z Trybu Adventure w celu dostosowania mojej talii pod bossa.
+            \item Po skończonej walce z bossem nie chcę być wyrzucany z Trybu Adventure, żeby móc dalej kontynuować historię.
+            \item Jeżeli pokonanie bossa wiążę się ze zdobyciem nowej karty, to przed walką chcę się o tym dowiedzieć, żeby mieć większą chęć do walki.
+        \end{enumerate}
+        \item Rankingi
+        \begin{enumerate}
+            \item Chcę mieć możliwość wyboru kategorii rankingowych, żeby w jednym momencie widzieć tylko tą, która mnie interesuje.
+            \item Chcę, żeby kilku najlepszych graczy było wyraźnie zaznaczonych, aby czerpać większą satysfakcję jeżeli to ja będę wśród nich.
+            \item Przy każdym użytkowniku w rankingu chcę widzieć jego pozycję i wynik, aby łatwo odczytać informację o nich.
+            \item Chcę móc kliknąć na dowolnego użytkownika żeby wyświetlić jego profil w celu pozyskania informacji o nim.
+            \item Po wyświetleniu wybranego profilu chcę mieć możliwość stoczenia z nim pojedynku, żeby nie musieć zapamiętywać jego nazwy do późniejszego wyszukiwania w Trybie Battle.
+            \item Chcę wyszukiwać użytkowników po nazwie, żeby zobaczyć ich pozycję w rankingu, ich profil.
+            \item Chcę zawsze widzieć swoją pozycję i wynik w kategorii, którą aktualnie wyświetlam, żeby mieć do niej łatwy dostęp i nie musieć przechodzi do swojego profilu.
+        \end{enumerate}
+        \item Profil użytkownika
+        \begin{enumerate}
+            \item Chcę widzieć swoją nazwę i statystyki, żeby analizować swoje postępy w aplikacji.
+            \item Chcę móc łatwo edytować swoją talię kart, żeby próbować różne kombinację bez konieczności wchodzenia w tryb Battle.
+            \item Przy dostosowaniu talii chcę widzieć wszystkie dostępne karty, aby mieć możliwość łatwej zmiany talii.
+            \item Chcę zobaczyć informację o karcie którą wybiorę, żeby dowiedzieć się co ona robi i zdecydować czy chcę coś z nią zrobić.
+            \item Chcę mieć wgląd na wszystkie karty jakie posiadam, żeby cieszyć się swoją kolekcją.
+            \item W edytorze talii chcę, aby nowo zdobyte karty były jakoś oznaczone, aby nie musieć ich wyszukiwać wśród wszystkich innych.
+            \item Chcę widzieć poziomy swoich kart, żeby łatwiej dostosowywać talię.
+            \item Chcę zawsze widzieć ilość punktów Skilli, żeby łatwiej podejmować decyzję ulepszania kart.
+            \item W każdej chwili chcę mieć możliwość podjęcia się rozwiązania quizu, żeby otrzymać nowe punkty Skilli.
+            \item Chcę mieć dostępne dwie talie kart - do obrony i do ataku, aby odpowiednio przygotować się na nadchodzące pojedynki
+        \end{enumerate}
+        \item Quizy
+        \begin{enumerate}
+            \item Chcę mieć dostęp do widoku ze wszystkimi pytaniami podzielone na kategorie, na które do tej pory udzieliłem poprawnej odpowiedzi w quizach, aby móc je sobie przypomnieć.
+        \end{enumerate}
+        \item Pozostałe
+        \begin{enumerate}
+            \item  Chcę mieć możliwość wyłączenia efektów dźwiękowych w aplikacji, aby nie musieć ich słyszeć gdy tego nie potrzebuję.
+            \item Chcę mieć możliwość zgłoszenia błędu w treściach aplikacji, żeby dać informację zwrotną twórcom, aby poprawili błąd.
+            \item Po wejściu do aplikacji chcę dowiedzieć się, czy trwa obecnie event losowy, aby zdobywać nowe karty, punkty PU i utrzymywać codzienną aktywność w grze.
+            \item Jeżeli nie mogę dołączyć do eventu losowego, chcę znać powód, aby dostosować się do jego wymagań i wziąć w nim udział.
+            \item Chcę dostawać powiadomienia informujące mnie o nowej zawartości w aplikacji, żebym mógł ją sprawdzić.
+            \item Chcę, aby opis do czego służy ta aplikacja i co można w niej robić nie był zbyt długi i znajdował się na jej stronie głównej bez potrzeby rejestracji, ani logowania, żeby łatwo się dowiedzieć, czy będę zainteresowany używaniem tej aplikacji.
+        \end{enumerate}
+    \end{enumerate}
+    \item Użytkownik: \textbf{Twórca}
+    \begin{enumerate}
+        \item Kreator Historii
+        \begin{enumerate}
+            \item Chcę móc dodawać swoje obrazy, aby potem wykorzystać je w historiach.
+            \item Chcę obsługę przezroczystości, żeby postacie dobrze wyświetlały się na tłach.
+            \item Chcę mieć możliwość symulacji historii, żeby zobaczyć jak będzie wyświetlana użytkownikom i poprawić ewentualne błędy.
+            \item Chcę móc dostosować parametry historii, aby wyświetlały się konkretnym studentom na danym semestrze z danym przedmiotem.
+            \item Chcę dodawać wiele emocji dla postaci i móc je wywoływać w konkretnych dialogach, aby tworzyć bardziej dynamiczne historie.
+            \item Chcę ustawić kiedy i jaką kartę użytkownik zdobędzie, żeby tworzyć historię, po których użytkownik zdobywa nowe karty.
+            \item Chcę móc wywoływać proste animacje, żeby historie lepiej wyglądały.
+            \item Chcę móc usuwać swoje dodane obrazy jeśli jednak zdecyduje się na inny wygląd sceny, aby historia była zaprezentowana według mojej wizji.
+            \item Chcę dostać powiadomienie czy wysłana przeze mnie historia została wysłana pomyślnie, aby wysłać ją jeszcze raz w razie potrzeby.
+            \item Chcę móc wybierać i usuwać grafiki już znajdujące się w bazie danych aplikacji aby je wykorzystywać do swojej historii.
+        \end{enumerate}
+        \item Kreator Kart
+        \begin{enumerate}
+            \item Chcę móc dodawać swoje obrazy, aby tworzyć unikalne karty.
+            \item Chcę wybierać efekty z listy, żeby tworzyć dynamiczne karty.
+            \item Chce móc dostosować parametry karty, żeby miały konkretne efekty w trybie Battle.
+            \item Chcę zdecydować w jaki sposób karta będzie ulepszana przez punkty Skilli.
+            \item Chcę móc tworzyć karty wszelkiego rodzaju, aby przyczynić się do rozwoju treści w aplikacji.
+            \item Chcę, aby karta zawierała tytuł, przedmiot i krótki opis, aby móc charakteryzować karty i dzielić je na kategorie.
+            \item Chcę móc nadać karcie więcej niż jeden efekt, aby karty były bardziej różnorodne.
+            \item Chcę mieć możliwość tworzenia kart dających mocne benefity, ale też pewne kary dla posiadacza, żeby karty były urozmaicone.
+            \item Chcę tworzyć karty, które na różnych poziomach będą miały różne efekty, żeby same karty i ich ulepszanie na wyższe poziomy było ciekawsze.
+            \item Chcę mieć możliwość dołączenia dodatkowych uwag w formie tekstowej do mojego zgłoszenia nowej karty, żeby przekazać administratorom informacje inne niż te udostępnione przez Kreator Kart.
+        \end{enumerate}
+        \item Kreator Quizów
+        \begin{enumerate}
+            \item Chcę mieć możliwość wyboru z listy wszystkich dostępnych przedmiotu, żeby przypisać pytanie Quizowe do danego przedmiotu.
+            \item Chcę mieć możliwość wyboru trybu pytania spośród prawda/fałsz, abc, itd., żeby dostosować Quiz do swoich potrzeb.
+            \item Chcę mieć możliwość wyboru poprawnych i złych odpowiedzi, żeby pytania Quizowe były pełne.
+            \item Chcę dostać powiadomienie czy wysłane przeze mnie pytanie zostało wysłane pomyślnie, aby wysłać je jeszcze raz w razie potrzeby.
+        \end{enumerate}
+        \item Wszyscy kreatorzy
+        \begin{enumerate}
+            \item Chcę dostać powiadomienie o zaakceptowaniu mojej stworzonej treści, żeby wiedzieć, czy stworzyć dobrą treść.
+            \item Chcę dostać powiadomienie o odrzuceniu mojej stworzonej treści z uzasadnieniem, żeby móc poprawić moją treść.
+            \item Chcę dostać jakieś benefity za nadesłanie zaakceptowanych treści, żeby czuć satysfakcję z tworzenia.
+            \item Chcę móc edytować wszystkie stworzone przez siebie zawartości, w tym te odrzucone, żeby móc je poprawić.
+        \end{enumerate}
+    \end{enumerate}
+    \item Administrator
+    \begin{enumerate}
+        \item Chcę mieć możliwość modyfikowania parametrów aplikacji, żeby łatwo usprawniać jej działanie.
+        \item Chcę widzieć statystyki aplikacji takie jak ilość aktywnych użytkowników, ilość wszystkich użytkowników, średni czas pracy, aby oceniać jak dobrze aplikacja pracuje.
+        \item Chcę mieć możliwość akceptowania / odrzucania propozycji nowej zawartości i dodawania komentarzy, żeby decydować co trafia do aplikacji i dawać feedback twórcom.
+        \item Chce mieć realistyczny podgląd proponowanych treści, żeby ocenić czy je zaakceptować.
+        \item Chcę móc tworzyć konta testowe, aby swobodnie sprawdzać działanie aplikacji jako użytkownik.
+        \item Chcę móc usuwać zawartości już dodane, aby pozbyć się ewentualnych błędów lub złego contentu.
+        \item Chcę otrzymywać informację o zgłoszeniach nowego contentu, aby nie musieć za każdym razem sprawdzać listy.
+        \item Chcę otrzymywać powiadomienia o zgłoszonych błędach, żeby je poprawiać.
+    \end{enumerate}
+\end{enumerate}
+\end{tcolorbox}
+\section{Ewolucja procesu}
 
 \section{Wykorzystanie GitHub Projects jako narzędzia do zarządzania procesem}
 
-\section{Ewolucja}
 
 \printbibliography
 
