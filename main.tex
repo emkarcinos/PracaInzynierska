@@ -2,6 +2,22 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={}
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!10,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=0mm,
+    boxsep=5pt,
+    arc=0pt,outer arc=0pt,
+    }
+
 \usepackage[
 backend=biber,
 style=alphabetic,
@@ -37,7 +53,7 @@ sorting=ynt
 
 \subsection{Streszczenie}
 Zarządzanie projektami informatycznymi zaczęło mnie interesować już na 3 roku studiów, gdzie miałem przyjemność uczestniczyć w zajęciach z Inżynierii Oprogramowania prowadzonych przez
-dr. Krzysztofa Krzywdzińskiego, w grupie zajęciowej u dr. Patryka Żywicy. WMI Adventure, będący pierwszym większym projektem który realizowałem drużynowo, byłem w dużym stopniu odpowiedzialny za
+dr. Krzysztofa Krzywdzińskiego, w grupie zajęciowej u dr. Patryka Żywicy. WMI Adventure, będący pierwszym większym projektem który realizowałem zespołowo, byłem w dużym stopniu odpowiedzialny za
 proces który implementowaliśmy.
 
 Napisałem tę pracę korzystając ze zdobytej wcześniej wiedzy między innymi na zajęciach uczelnianych, z przeczytanych książek,
@@ -53,13 +69,13 @@ rejestrować postępu prac. Każdy z członków ma inną wizję projektu i prior
 Potrzeba zatem pewnej struktury, która sprawi, że rozwój oprogramowania będzie przewidywalny - tym właśnie jest zarządzanie projektem, a metodyki to zbiór pewnych ram, które ułatwią jego rozwój.
 
 \subsection{Cel}
-WMI Adventure było piaskownicą, którą wykorzystałem do nauki zarządzania zespołem w praktyce. Analizując skutki które przynosiły moje (i innych członków zespołu) decyzje, starałem się z każdym tygodniem usprawniać
+Projekt WMI Adventure wykorzystałem do nauki zarządzania zespołem w praktyce. Analizując skutki które przynosiły moje (i innych członków zespołu) decyzje, starałem się z każdym tygodniem usprawniać
 proces, wynosząc przy tym doświadczenie i  wiedzę, którą chcę tutaj przekazać.
 
 W litetaturze czy materiałach dostępnych w internecie możemy znaleźć ogólne zasady zarządzania projektem, które też tutaj przytaczam, natomaist
 meritum pracy znajduje się w opisie konkretnego wykorzystania tych zasad w oparciu o WMI Adventure, które omawiam w jej drugiej części.
 
-Drużyna WMI Adventure liczyła początkowo 4 członków, końcowo trzech. Koordynacja mniejszymi zespołami wcale nie musi być prostsza niż tymi dużymi. Chcę w tej pracy opisać metodyki w oparciu o małe zespoły i dostarczyć informację na temat problemów i potencjalnych rozwiązań, które w takich drużynach
+Zespół WMI Adventure liczył początkowo 4 członków, końcowo trzech. Koordynacja mniejszymi zespołami wcale nie musi być prostsza niż tymi dużymi. Chcę w tej pracy opisać metodyki w oparciu o małe zespoły i dostarczyć informację na temat problemów i potencjalnych rozwiązań, które w takich zespołach
 występują.
 
 \section{Metodyki pracy i ich kontekst historyczny}
@@ -70,13 +86,13 @@ Wybór metodyki ma zatem ogromny wpływ na pracę zespołu - sposobów na zreali
 Metodyka pracy mówi nam zatem \textit{jak} wytwarzać oprogramowanie.
 
 \subsection{Metody kaskadowe}
-Początki korporacyjnego świata projektów informatycznych wykorzystywały metody zwane ogólnie kaskadowymi. Mogły wywodzić się z doświadczenia inżynieryjnego zdobytego w fabrykach.\cite{scrum} Linia produkcyjna w fabryce jest
+Początki korporacyjnego świata projektów informatycznych wykorzystywały metody zwane ogólnie kaskadowymi. Mogły wywodzić się z doświadczenia inżynieryjnego zdobytego w fabrykach\cite{scrum}. Linia produkcyjna w fabryce jest
 stałym elementem i nie jest odporna na zmiany. Półprodukt przechodzi z jednej linii do drugiej. Nie ma możliwości, żeby gotowy przedmiot opuścił fabrykę bez przejścia każdego etapu bez jakiejkolwiek porażki.
 Każdy błąd popełniony przez pracowników na linii produkcyjnej jest katastrofalny i nie jest tolerowany.
 
-Metody kaskadowe w projektach informatycznych działają podobnie - drużyna nie jest przystosowana na zmiany, zakładane jest, że wymagania projektowe nigdy się nie zmienią i żadne błędy nie zostaną popełnione na danych etapach projektu. Poszczególne fazy projektu realizowane są sekwencyjnie - jeden po drugim, co skutkuje tym, że błędy z wcześniejszych faz są propagowane na kolejne - często ich magnituda rośnie eksponencjalnie z każdym kolejnym etapem.
+Metody kaskadowe w projektach informatycznych działają podobnie - zespół nie jest przystosowany na zmiany, zakładane jest, że wymagania projektowe nigdy się nie zmienią i żadne błędy nie zostaną popełnione na danych etapach projektu. Poszczególne fazy projektu realizowane są sekwencyjnie - jeden po drugim, co skutkuje tym, że błędy z wcześniejszych faz są propagowane na kolejne - często ich magnituda rośnie eksponencjalnie z każdym kolejnym etapem.
 
-Drużyny w takich metodykach często składają się dużej liczby członków odpowiedzialnych za konkretne, zdefiniowane czynności.
+Zespoły w takich metodykach często składają się dużej liczby członków odpowiedzialnych za konkretne, zdefiniowane czynności.
 
 Przykładem metodyki kaskadowej jest \textbf{Rational unified process (RUP)}
 
@@ -94,8 +110,10 @@ Dokument wizji projektu odpowiada na pytanie \textit{Jak będzie wyglądał proj
 
 Przypadki użycia - use cases to szczegółowe opisy konkretnych funkcji w systemie opisane w formie ścieżek, jakie dany odbiorca będzie przechodził, żeby osiągnąć konkretny dla niego cel. Use cases są bardzo szczegółowe i przedstawiają wszystkie możliwe ścieżki i zachowania systemu.
 
-Przykładowy Use Case utworzony przeze mnie na potrzeby kursu z \textit{Inżynierii oprogramowania}:
+Po tej fazie wszystkie Use Case'y dla projektu powinny zostać ukończone. Powstaje także \textbf{dokument wymagań projektowych} stanowiący bardziej techniczną i szczegółową wersję dokumentu wizji.
 
+Przykładowy Use Case utworzony przeze mnie na potrzeby kursu z \textit{Inżynierii oprogramowania}:
+\begin{tcolorbox}
 \subsubsection*{Kontekst: System zarządzania projektami w firmie produkującej filmy wideo}
 \subsubsection*{Use Case: Wprowadzenie projektu do systemu}
 \textbf{Aktor podstawowy: \textit{Szef firmy}}
@@ -118,6 +136,8 @@ jest data wprowadzenia projektu do systemu, generowany jest wpis w historii. Na 
 kopia zapasowa z wpisem do bazy. Projekt jest widoczny na tablicy pracowników i tablicy szefa. System jest w
 gotowości do przydzielenia ról i zadań pracownikom.
 
+\end{tcolorbox}
+\begin{tcolorbox}
 \subsubsection*{Scenariusz główny}
 \begin{enumerate}
     \item Podczas rozmowy z klientem, szef otwiera moduł tworzenia projektu na swoim komputerze PC poprzez aplikacę webową
@@ -129,6 +149,7 @@ gotowości do przydzielenia ról i zadań pracownikom.
     \item Szef otrzymuje wiadomość zwrotną, że projekt został dodany pomyślnie
     \item W dowolnym momencie może zostać wprowadzana zmiana w danych projektu, mogą zostać załączone zewnętrzne dokumenty. \textit{Powtarzane są wtedy kroki 2-4}. Wpis w bazie danych oraz kopia zapasowa są aktualizowane.
 \end{enumerate}
+
 
 \subsubsection*{Rozszerzenia}
 
@@ -145,6 +166,8 @@ danych z aplikacji klienckiej do serwera i bazy danych
     \item Gdy system nie powraca do stanu gotowości, szef musi poinformować administratora o błędzie w systemie. Administrator podejmuje odpowiednie kroki, aby przywrócić system do działania
 \end{enumerate}
 
+\end{tcolorbox}
+\begin{tcolorbox}
 \subsubsection*{2. Niekompletne dane}
 W przypadku, gdy nie zostanie wprowadzona \textit{nazwa projektu}, projekt nie zostanie dodany, szef zostanie poinformowany o błędzie.
 
@@ -170,9 +193,9 @@ Szef może chcieć dodać dokument do projektu.
               \item W przypadku sukcesu wszystkich procesów, zwracana jest wiadomość o sukcesie
           \end{enumerate}
 \end{enumerate}
-
+\end{tcolorbox}
 \subsubsection*{Design}
-Na podstawie wcześniej zebranych wymagań analitycy we współpracy z architektami systemu decydują jak będzie wyglądał końcowy efekt i w jaki sposób zostanie utworzony. Podejmowane są tutaj takie decyzje jak wybór technologii i achitektura całego systemu, tworzone są wstępne projekty intefrejsu. Po tej fazie wszystkie Use Case'y dla projektu powinny zostać ukończone. Powstaje także \textbf{dokument wymagań projektowych} stanowiący bardziej techniczną i szczegółową wersję dokumentu wizji. Definiowany jest zakres systemu, wymagania funkcjonalne i niefunkcjonalne czy kryteria akceptacji i ryzyka projektowe.
+Na podstawie wcześniej zebranych wymagań analitycy we współpracy z architektami systemu decydują jak będzie wyglądał końcowy efekt i w jaki sposób zostanie utworzony. Podejmowane są tutaj takie decyzje jak wybór technologii i achitektura całego systemu, tworzone są wstępne projekty intefrejsu. Definiowany jest zakres systemu, wymagania funkcjonalne i niefunkcjonalne czy kryteria akceptacji i ryzyka projektowe.
 
 \subsubsection*{Implementacja}
 Zespół programistów ze współpracy z architektami systemu implementują jego design. W tej fazie powinna powstać większość bytów programistycznych realizująca cały zakres systemu.
@@ -278,13 +301,13 @@ Scrum sam w sobie nie jest tak naprawdę metotyką, a bardziej \textit{framework
 \subsubsection*{Product Owner - właściciel produktu}
 \textit{Właściwiel produktu}, jak sama nazwa wskazuje, odpowiada za produkt tworzony przez zespół. Jego głównymi zadanami jest dbanie o \textit{Product backlog} i o wartość pracy zespołu.
 
-W odróżnieniu od metod kaskadowych, gdzie rola \textit{manedżera projektu} czy \textit{analityka} była rozłączna od całego zespołu, tutaj Product Owner jest jego częścią. "Opiekuje" się produktem tworzonym przez zespół. Wymagania nie są już tworzone tylko przez klienta i spisywane przez analityków, zespół tworzy je razem z Product Ownerem.\cite{scrum}
+W odróżnieniu od metod kaskadowych, gdzie rola \textit{manedżera projektu} czy \textit{analityka} była rozłączna od całego zespołu, tutaj Product Owner jest jego częścią. "Opiekuje" się produktem tworzonym przez zespół. Wymagania nie są już tworzone tylko przez klienta i spisywane przez analityków, zespół tworzy je razem z Product Ownerem\cite{scrum}.
 \subsubsection*{Scrum Master}
 
-\textit{Scrum Master} jest pewnego rodzaju strażnikiem całego zespołu Scrumowego. Dba on o to, aby zespół mógł pracować bez żadnych zakłóceń zewnętrznych, takich jak ingerencja wyższych kierowników, czy problemy firmy. Jest też swojego rodzaju strażnikiem procesu, ale rozumianym w mniej restrykcyjny sposób - dba o to, żeby wszyscy członkowie zespołu rozumieli tą metodykę i poprawnie ją stosowali. Wspomaga jego rozwój, dba o relacje między członkami zespołu. Asystuje Product Owner'a w kwestiach produktowych. Sam Scrum Master nie powinien uczestniczyć w programistycznych dyskusjach.\cite{scrum}
+\textit{Scrum Master} jest pewnego rodzaju strażnikiem całego zespołu Scrumowego. Dba on o to, aby zespół mógł pracować bez żadnych zakłóceń zewnętrznych, takich jak ingerencja wyższych kierowników, czy problemy firmy. Jest też swojego rodzaju strażnikiem procesu, ale rozumianym w mniej restrykcyjny sposób - dba o to, żeby wszyscy członkowie zespołu rozumieli tą metodykę i poprawnie ją stosowali. Wspomaga jego rozwój, dba o relacje między członkami zespołu. Asystuje Product Owner'a w kwestiach produktowych. Sam Scrum Master nie powinien uczestniczyć w programistycznych dyskusjach\cite{scrum}.
 
 \subsubsection*{Deweloper, czyli "zwykły" członek zespołu}
-Członkowie zespołu Scrumowego to nie koniecznie tylko programiści. W zależności od tego, czego potrzebuje zespół do realizowania User Stories mogą się w nim znaleźć takie role jak grafik, tester, projektant interfejsu, czy nawet tłumacz, jeżeli produkt tego wymaga. Ich rolą jest realizowanie User Storiesów. W odróżnieniu od programistów czy testerów w kaskadowym podejściu, zespół uczestniczy w spotkaniach produktowych i jest w stanie wpłynąć na to, jak wyglądają wymagania projektowe. Drużyna jest samoorganizacyjna, to oni decydują o tym, w jaki sposób wykonują zadania podczas Sprintu.
+Członkowie zespołu Scrumowego to nie koniecznie tylko programiści. W zależności od tego, czego potrzebuje zespół do realizowania User Stories mogą się w nim znaleźć takie role jak grafik, tester, projektant interfejsu, czy nawet tłumacz, jeżeli produkt tego wymaga. Ich rolą jest realizowanie User Storiesów. W odróżnieniu od programistów czy testerów w kaskadowym podejściu, zespół uczestniczy w spotkaniach produktowych i jest w stanie wpłynąć na to, jak wyglądają wymagania projektowe. Zespół jest samoorganizacyjny, to jego członkowie decydują o tym, w jaki sposób wykonują zadania podczas Sprintu.
 
 \subsubsection{Organizacja pracy}
 
@@ -315,14 +338,14 @@ Celem planowania jest wybranie realizowanych User Stories i rozbicie ich na zada
 
 Wybór realizowanych Stories jest kluczową rzeczą dla rozpoznawania ryzyka w projekcie i priorytetyzacji. Zespół razem z \textit{Product ownerem} skupia się nad tym, co chce w danym sprincie osiągnąć\cite{scrum}.
 
-Przy wyborze User Stories zespół szacuje, ile jednostek czasu jest w stanie na nie poświęcić, na przykład na podstawie metryk z wcześniejszych sprintów.\cite{scrum}.
+Przy wyborze User Stories zespół szacuje, ile jednostek czasu jest w stanie na nie poświęcić, na przykład na podstawie metryk z wcześniejszych sprintów\cite{scrum}.
 
-User Stories są rozbijane na mniejsze zadania, którym przypisywane są jednostki czasowe przewidziane na ich realizacje. Takie zadania mają na celu pomóc drużynie w rozdzieleniu pracy między członków.
+User Stories są rozbijane na mniejsze zadania, którym przypisywane są jednostki czasowe przewidziane na ich realizacje. Takie zadania mają na celu pomóc zespołowi w rozdzieleniu pracy między członków.
 
 \subsubsection*{Praca podczas Sprintu}
-Po Sprint Planningu drużyna skupia się na realizowaniu zadań. Codziennie odbywają się Daily.
+Po Sprint Planningu zespół skupia się na realizowaniu zadań. Codziennie odbywają się Daily.
 
-Organizacja pracy zależy tutaj tylko i wyłącznie od zespołu - w zasadach Scruma nie jest to zawarte - tu można zaobserwować wykorzystanie jednego z założeń Agile - \textit{Ludzie i interakcje ponad procesami i narzędziami}. To drużyna decyduje w jaki sposób realizuje zadania.
+Organizacja pracy zależy tutaj tylko i wyłącznie od zespołu - w zasadach Scruma nie jest to zawarte - tu można zaobserwować wykorzystanie jednego z założeń Agile - \textit{Ludzie i interakcje ponad procesami i narzędziami}. To zespół decyduje w jaki sposób realizuje zadania.
 
 \subsubsection*{Definiton of done}
 Definition of done \textit{z ang. miara kompletności} to abstrakcyjne pojęcie, które definiowane jest w każdym projekcie w inny sposób. Mówi ono o tym, jakie kryteria powinno spełniać zadanie czy User Story, żeby było określone jako ukończone. Ciężko jest podać dokładną definicję takiego abstrakcyjnego pojęcia.
@@ -337,14 +360,14 @@ Przykłady \textit{definition of done}:
 \end{center}
 
 \subsubsection*{Retrospektywa}
-Sprint nie narzuca zasad pracy podczas Sprintu i to zespół decyduje o jego dokładnym przebiegu. Retrospektywa to spotkanie mające na celu usprawniać działanie drużyny podczas trwania Sprintu. Takie spotkanie powinno odbywać się jeden raz w ciągu Sprintu.
+Sprint nie narzuca zasad pracy podczas Sprintu i to zespół decyduje o jego dokładnym przebiegu. Retrospektywa to spotkanie mające na celu usprawniać działanie zespołu podczas trwania Sprintu. Takie spotkanie powinno odbywać się jeden raz w ciągu Sprintu.
 
 Na retrospektywie każdy z członków zespołu może powiedzieć co jego zdaniem udało się zrobić dobrze, a co nie, oraz zasugerować rozwiązania danych problemów.
 
-Rezultatem retrospektywy są \textit{Action Points} \textit{(z ang. punkty akcji)}, czyli konkretne działania bądź zmiany w procesie jakie drużyna zastosuje podczas następnych sprintów, utworzone na podstawie odbytych dyskusji.
+Rezultatem retrospektywy są \textit{Action Points} \textit{(z ang. punkty akcji)}, czyli konkretne działania bądź zmiany w procesie jakie zespół zastosuje podczas następnych sprintów, utworzone na podstawie odbytych dyskusji.
 
 \subsection{Kanban}
-Metodyka ta została stworzona przez Taiichiego Ohno pracującego w japońskiej firmie *Toyota*. \cite{kanban}Kanban w odóżnieniu od Scruma charakteryzuje się ciągłym przepływem zadań (określanym mianem \textit{karteczek}) / User Stories i nie definiuje żadnych ról. Jego głównym celem jest wizualizacja pracy projektowej w zespole. Kanban to "lekka" metodyka, w czystej postaci znajdująca swoje zastosowanie głównie w niewielkich projektach i drużynach. \cite{kanban2}.
+Metodyka ta została stworzona przez Taiichiego Ohno pracującego w japońskiej firmie *Toyota*\cite{kanban}.Kanban w odóżnieniu od Scruma charakteryzuje się ciągłym przepływem zadań (określanym mianem \textit{karteczek}) / User Stories i nie definiuje żadnych ról. Jego głównym celem jest wizualizacja pracy projektowej w zespole. Kanban to "lekka" metodyka, w czystej postaci znajdująca swoje zastosowanie głównie w niewielkich projektach i zespołach\cite{kanban2}.
 
 \subsubsection{Przepływ zadań}
 
