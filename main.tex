@@ -596,9 +596,104 @@ Zaczynaliśmy omawiać karteczki / grupy malejąco według przyznanych głosów.
 Podobnie jak w poprzednim schemacie po dyskusji nad konkretną karteczką wyciągaliśmy z niej wniosek w postaci \textbf{Action point}'u - karteczki znajdującej się osobno w sekcji \textit{akcje}, która opisywała konkretne kroki / zadanie, które będą wykonane w związku z retrospektywą.
 
 Nie wszystkie karteczki i dyskusje kończyły się akcją - akcja miała być pewną pracą, którą mamy zrobić w ramach danego problemu. Akcją nie będzie na przykład \textit{zwiększenie systematyczności pracy}, ale \textit{rozbicie zadań frontendowych na implementację mobilne i desktopowe osobno} już tak.
-\subsection{Początki pracy - kwiecień 2021}
 
-\subsection{Pierwsze zmiany w procesie - maj 2021}
+\subsection{Tablica Kanbanowa}
+Do organizacji pracy wewnątrz sprintu wykorzystaliśmy klasyczną tablicę Kanbanową. Umieszczamy na niej zarówno byty bisnezosowe (User Stories) oraz zadania programistyczne, lub inne realizowane wewnątrz sprintu.
+
+Tablica przechodziła najwięcej zmian podczas trwania projektu. Przedstawię poniżej początkowy i końcowy jej stan, natomiast ewolucja i konkretne powody za wprowadzanymi zmianami omawiam w sekcjach niżej.
+
+\subsection*{Początkowy stan z Kwietnia 2021r.}
+W pierwszym sprincie realizowaliśmy prototyp całej aplikacji w oparciu o napisane wcześniej User Stories.
+
+Nazwa tablicy powinna wskazywać na cele (Sprintu), tutaj natomiast nie jest to jeszcze dokładnie sprecyzowane.
+
+Link do tablicy w GitHub projects: \url{
+    https://github.com/emkarcinos/WMIAdventure/projects/2}
+\subsubsection*{Kolumny}
+\begin{itemize}
+    \item \textbf{To do - oczekujące} - Wszystkie User Stories wymieszane z pozostałymi zadaniami w danym sprincie początkowo znajdowały się w tej kolumnie. Nie rozróżnialiśmy jeszcze wtedy zadań biznesowych (Epici, User Stories) i zadań programistycznych.
+    \item \textbf{In progress - w trakcie pracy} - Zadanie trafiało tutaj w momencie gdy ktoś z zespołu zaczynał realizować daną karteczkę
+    \item \textbf{Waiting for approve - oczekuje na aprobatę} - Początkowo omijaliśmy tą kolumnę - nie robiliśmy żadnych recenzji zadań, które wykonywaliśmy - trafiały one prosto do następnej sekcji
+    \item \textbf{Done - ukończone} - Wizualny wkaźnik tego, ile zadań udało nam się już zrobić. Korzystaliśmy z tej kolumny głównie do oceny postępu w sprincie.
+\end{itemize}
+
+Jako, że tak naprawdę korzystaliśmy tylko z trzech kolumn nie mieliśmy jasno określonych priorytetów - według założeń Kanbana, powinniśmy redukować ilośc karteczek w danej kolumnie do minimum. W tym sprincie zdarzały się sytuację, że w kolumnie \textit{In progress} było zdecydowanie za dużo zadań.
+
+\subsubsection*{Karteczki - zadania}
+Zadania były utworzone w chaotyczny i mało usystematyzowany sposób. Zaczęliśmy od stworzenia User Stories jako zadań, w których jako podzadania wymienione były szczegóły implementacyjne do zrealizowania tego User Story. Z drugiej strony stworzyliśmy też zwykłe zadania implementacyjne, które z kolei jako podzadania miały wypisane User Stories, które realizują.
+
+Jedna karteczka była zatem bardzo przeładowana i często zdarzało się tak, że osoba pracująca nad jedną z nich nie wiedziała dokładnie co wchodzi w zakres danego zadania, a co nie.
+
+Mimo, że byliśmy w stanie śledzić postęp sprintu jeżeli chodzi o ilość wykonanych i oczekujących zadań, natomiast nie mieliśmy dostępnej informacji o tym jak dużo zrealizowaliśmy w kwestii biznesowej (User Stories).
+
+Same karteczki nie miały żadnych komentarzy i szczegółów dotyczących implementacji. Wszystko zostawialiśmy osobie realizującej dane zadanie. Praca zespołowa ograniczała się tak naprawdę do wykonywania całości prototypu w podziale na zadania, ale w samych zadaniach nie było żadnej współpracy.
+
+\begin{center}
+    \includegraphics[scale=0.7]{card_initial_example.png}
+    \newline
+    Rys. 5 - Przykładowa Kanbanowa karteczka w pierwszej iteracji procesu - \url{https://github.com/emkarcinos/WMIAdventure/issues/61}
+\end{center}
+
+\subsection*{Stan z Grudnia 2021r.}
+Link do tablicy na GitHub Projects: \url{https://github.com/emkarcinos/WMIAdventure/projects/12}
+
+Cele sprintu są teraz dużo bardziej konkretnie określone.
+
+\subsubsection*{Kolumny}
+\begin{itemize}
+    \item \textbf{Sprint Backlog} - Nowa kolumna w której trzymamy karteczki typu User Stories.
+    \item \textbf{To do - do zrobienia} - w przeciwieństwie do pierwszej iteracji, w tej kolumnie przechowujemy tylko zadania programistyczne wykonywane w ramach danego sprintu
+    \item \textbf{In progress - w trakcie pracy}
+    \item \textbf{Testing and review - testowanie i recenzja} - wykonane zadania nie trafiały już od razu do sekcji "ukończone", tylko zawsze musiały przejść proces recenzji kodu oraz testowania.
+    \item \textbf{Done - ukończone}
+\end{itemize}
+Główne różnice w tablicy wynikają z wprowadzenia dwóch nowych kolumn - \textit{Sprint Backlog} i \textit{Testing and review}.
+
+Zaczęliśmy także stosować priorytetyzację kolumn - od prawej do lewej, to jest, zamiast rozpoczynać nowe zadania, zawsze powinniśmy najpiew przetestować zadania oczekujące na recenzję.
+
+\subsubsection*{Karteczki - zadania}
+Same karteczki przeszły największą metamorfozę. Ogólny podział karteczek na byty biznesowe (User Stories) i zadania drużynowe dalej obowiązuje, natomiast każda z tych dwóch katerogii została rozwinięta.
+
+\subsubsection*{User Stories}
+Karteczki tego typu dostały dwa oznaczenia: \textbf{User Story}, wyróżniające karteczkę w backlogu i \textbf{Story Points}, czyli abstrakcyjna wartość liczbowa reprezentująca poziom skomplikowania danego story.
+
+W opisie danego User Story pojawiły się odniesienia do zadań programistycznych, które je realizują. Umożliwia to dokładne śledzenie procesu ukończenia danego celu biznesowego.
+
+\begin{center}
+    \includegraphics[scale=0.5]{card_user_story_example.png}
+    \newline
+    Rys. 6 - Przykładowa Kanbanowa karteczka typu User Story w końcowej iteracji procesu - \url{https://github.com/emkarcinos/WMIAdventure/issues/105}
+\end{center}
+
+\subsubsection*{Zadania programistyczne i inne}
+Realizowanie User Stories jako zadania było niewygodne ze względu na to, że jeden User Story mógłby być realizowany przez więcej niż jeden sprint. Brakowało precyzji, którą osiągnęliśmy dzięki wprowadzaniu zadań typu programistycznego, lub typu innego (na przykład zdobycie nowej bazy danych, czy przygotowanie ankiety).
+
+Zadania te często odnosiły się do konkretnych User Stories (wspominałem w sekcji wyżej - oznaczone jako podzadania).
+
+Dodatkowo pojawiły się oznaczenia przy zadaniach sugerujące jakiej części systemu może dotyczyć (UI/UX, Frontend, backend). Wynikało to z naturalnego podziału na osoby bardziej specjalizujące się w danym obszarze systemu, przez co łatwiej wizualnie wybrać zadanie do realizacji.
+
+\begin{center}
+    \includegraphics[scale=0.5]{card_implementation_task_example.png}
+    \newline
+    Rys. 7 - Przykładowa Kanbanowa karteczka z zadaniem programistycznym w końcowej iteracji procesu - \url{https://github.com/emkarcinos/WMIAdventure/issues/810}
+\end{center}
+\begin{center}
+    \includegraphics[scale=0.5]{card_other_task_example.png}
+    \newline
+    Rys. 8 - Przykładowa Kanbanowa karteczka z zadaniem nieprogramistycznym w końcowej iteracji procesu - \url{https://github.com/emkarcinos/WMIAdventure/issues/736}
+\end{center}
+
+\subsubsection*{Dyskusje pod karteczkami}
+W nowej wersji procesu wprowadziliśmy większe dyskusje pod zadaniami na tablicy, aby skrócić bardzo długie codzienne spotkania i ułatwić planowanie. Każdy w ramach planowania miał zaznajomić się z zadanami, które wybraliśmy do realizacji w danym sprincie. Komentarze były miejscem na sugerowane rozwiązania i ewentualne pytania, dzięki czemu podczas ich wykonywania zespół był w stanie odnieść się do opinii i sugestii innych.
+
+Dodatkowo wprowadziliśmy bardziej szerokie opisy zadań tak, aby były bardziej zrozumiałe dla osoby, która realizuje zadanie spoza swojego zakresu specjalności.
+
+Jeżeli dana karteczka była poprarta dłuższą dyskusją, to decyzje i motywacje za nimi były także opisywane w treści zadania.
+
+\subsubsection*{Zakres zadań}
+Początkowo karteczki z zadaniami były bardzo obszerne i często wymagały wielu dni programistycznych na realizację. Chcieliśmy także móc pracować nad takimi zadanami asynchronicznie, dlatego zaczęliśmy rozdrabniać je na mniejsze fragmenty.
+
+Zadania powinny być rozbijane na \textit{atomowe części} - poprawne rozbicie zadania na takie części umożliwia asynchroniczną pracę kilku członków zespołu bez kolizji. Mniejsze części powinny być niezależnie testowalne. Dodatkowo pomaga to zrozumieć skalę problemu danej karteczki.
 
 \section{Wykorzystanie GitHub Projects jako narzędzia do zarządzania procesem}
 
