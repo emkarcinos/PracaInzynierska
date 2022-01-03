@@ -2,6 +2,22 @@
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+\usepackage[breakable, most]{tcolorbox}
+\tcbset{
+    breakable,
+    frame code={}
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!10,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=0mm,
+    boxsep=5pt,
+    arc=0pt,outer arc=0pt,
+    }
 \usepackage[
 backend=biber,
 style=alphabetic,
@@ -37,7 +53,7 @@ sorting=ynt
 
 \subsection{Streszczenie}
 Zarządzanie projektami informatycznymi zaczęło mnie interesować już na 3 roku studiów, gdzie miałem przyjemność uczestniczyć w zajęciach z Inżynierii Oprogramowania prowadzonych przez
-dr. Krzysztofa Krzywdzińskiego, w grupie zajęciowej u dr. Patryka Żywicy. WMI Adventure, będący pierwszym większym projektem który realizowałem drużynowo, byłem w dużym stopniu odpowiedzialny za
+dr. Krzysztofa Krzywdzińskiego, w grupie zajęciowej u dr. Patryka Żywicy. WMI Adventure, będący pierwszym większym projektem który realizowałem zespołowo, byłem w dużym stopniu odpowiedzialny za
 proces który implementowaliśmy.
 
 Napisałem tę pracę korzystając ze zdobytej wcześniej wiedzy między innymi na zajęciach uczelnianych, z przeczytanych książek,
@@ -53,13 +69,13 @@ rejestrować postępu prac. Każdy z członków ma inną wizję projektu i prior
 Potrzeba zatem pewnej struktury, która sprawi, że rozwój oprogramowania będzie przewidywalny - tym właśnie jest zarządzanie projektem, a metodyki to zbiór pewnych ram, które ułatwią jego rozwój.
 
 \subsection{Cel}
-WMI Adventure było piaskownicą, którą wykorzystałem do nauki zarządzania zespołem w praktyce. Analizując skutki które przynosiły moje (i innych członków zespołu) decyzje, starałem się z każdym tygodniem usprawniać
+Projekt WMI Adventure wykorzystałem do nauki zarządzania zespołem w praktyce. Analizując skutki które przynosiły moje (i innych członków zespołu) decyzje, starałem się z każdym tygodniem usprawniać
 proces, wynosząc przy tym doświadczenie i  wiedzę, którą chcę tutaj przekazać.
 
 W litetaturze czy materiałach dostępnych w internecie możemy znaleźć ogólne zasady zarządzania projektem, które też tutaj przytaczam, natomaist
 meritum pracy znajduje się w opisie konkretnego wykorzystania tych zasad w oparciu o WMI Adventure, które omawiam w jej drugiej części.
 
-Drużyna WMI Adventure liczyła początkowo 4 członków, końcowo trzech. Koordynacja mniejszymi zespołami wcale nie musi być prostsza niż tymi dużymi. Chcę w tej pracy opisać metodyki w oparciu o małe zespoły i dostarczyć informację na temat problemów i potencjalnych rozwiązań, które w takich drużynach
+Zespół WMI Adventure liczył początkowo 4 członków, końcowo trzech. Koordynacja mniejszymi zespołami wcale nie musi być prostsza niż tymi dużymi. Chcę w tej pracy opisać metodyki w oparciu o małe zespoły i dostarczyć informację na temat problemów i potencjalnych rozwiązań, które w takich zespołach
 występują.
 
 \section{Metodyki pracy i ich kontekst historyczny}
@@ -70,13 +86,13 @@ Wybór metodyki ma zatem ogromny wpływ na pracę zespołu - sposobów na zreali
 Metodyka pracy mówi nam zatem \textit{jak} wytwarzać oprogramowanie.
 
 \subsection{Metody kaskadowe}
-Początki korporacyjnego świata projektów informatycznych wykorzystywały metody zwane ogólnie kaskadowymi. Mogły wywodzić się z doświadczenia inżynieryjnego zdobytego w fabrykach.\cite{scrum} Linia produkcyjna w fabryce jest
+Początki korporacyjnego świata projektów informatycznych wykorzystywały metody zwane ogólnie kaskadowymi. Mogły wywodzić się z doświadczenia inżynieryjnego zdobytego w fabrykach\cite{scrum}. Linia produkcyjna w fabryce jest
 stałym elementem i nie jest odporna na zmiany. Półprodukt przechodzi z jednej linii do drugiej. Nie ma możliwości, żeby gotowy przedmiot opuścił fabrykę bez przejścia każdego etapu bez jakiejkolwiek porażki.
 Każdy błąd popełniony przez pracowników na linii produkcyjnej jest katastrofalny i nie jest tolerowany.
 
-Metody kaskadowe w projektach informatycznych działają podobnie - drużyna nie jest przystosowana na zmiany, zakładane jest, że wymagania projektowe nigdy się nie zmienią i żadne błędy nie zostaną popełnione na danych etapach projektu. Poszczególne fazy projektu realizowane są sekwencyjnie - jeden po drugim, co skutkuje tym, że błędy z wcześniejszych faz są propagowane na kolejne - często ich magnituda rośnie eksponencjalnie z każdym kolejnym etapem.
+Metody kaskadowe w projektach informatycznych działają podobnie - zespół nie jest przystosowany na zmiany, zakładane jest, że wymagania projektowe nigdy się nie zmienią i żadne błędy nie zostaną popełnione na danych etapach projektu. Poszczególne fazy projektu realizowane są sekwencyjnie - jeden po drugim, co skutkuje tym, że błędy z wcześniejszych faz są propagowane na kolejne - często ich magnituda rośnie eksponencjalnie z każdym kolejnym etapem.
 
-Drużyny w takich metodykach często składają się dużej liczby członków odpowiedzialnych za konkretne, zdefiniowane czynności.
+Zespoły w takich metodykach często składają się dużej liczby członków odpowiedzialnych za konkretne, zdefiniowane czynności.
 
 Przykładem metodyki kaskadowej jest \textbf{Rational unified process (RUP)}
 
@@ -94,8 +110,10 @@ Dokument wizji projektu odpowiada na pytanie \textit{Jak będzie wyglądał proj
 
 Przypadki użycia - use cases to szczegółowe opisy konkretnych funkcji w systemie opisane w formie ścieżek, jakie dany odbiorca będzie przechodził, żeby osiągnąć konkretny dla niego cel. Use cases są bardzo szczegółowe i przedstawiają wszystkie możliwe ścieżki i zachowania systemu.
 
-Przykładowy Use Case utworzony przeze mnie na potrzeby kursu z \textit{Inżynierii oprogramowania}:
+Po tej fazie wszystkie Use Case'y dla projektu powinny zostać ukończone. Powstaje także \textbf{dokument wymagań projektowych} stanowiący bardziej techniczną i szczegółową wersję dokumentu wizji.
 
+Przykładowy Use Case utworzony przeze mnie na potrzeby kursu z \textit{Inżynierii oprogramowania}:
+\begin{tcolorbox}
 \subsubsection*{Kontekst: System zarządzania projektami w firmie produkującej filmy wideo}
 \subsubsection*{Use Case: Wprowadzenie projektu do systemu}
 \textbf{Aktor podstawowy: \textit{Szef firmy}}
@@ -129,6 +147,7 @@ gotowości do przydzielenia ról i zadań pracownikom.
     \item Szef otrzymuje wiadomość zwrotną, że projekt został dodany pomyślnie
     \item W dowolnym momencie może zostać wprowadzana zmiana w danych projektu, mogą zostać załączone zewnętrzne dokumenty. \textit{Powtarzane są wtedy kroki 2-4}. Wpis w bazie danych oraz kopia zapasowa są aktualizowane.
 \end{enumerate}
+
 
 \subsubsection*{Rozszerzenia}
 
@@ -170,9 +189,9 @@ Szef może chcieć dodać dokument do projektu.
               \item W przypadku sukcesu wszystkich procesów, zwracana jest wiadomość o sukcesie
           \end{enumerate}
 \end{enumerate}
-
+\end{tcolorbox}
 \subsubsection*{Design}
-Na podstawie wcześniej zebranych wymagań analitycy we współpracy z architektami systemu decydują jak będzie wyglądał końcowy efekt i w jaki sposób zostanie utworzony. Podejmowane są tutaj takie decyzje jak wybór technologii i achitektura całego systemu, tworzone są wstępne projekty intefrejsu. Po tej fazie wszystkie Use Case'y dla projektu powinny zostać ukończone. Powstaje także \textbf{dokument wymagań projektowych} stanowiący bardziej techniczną i szczegółową wersję dokumentu wizji. Definiowany jest zakres systemu, wymagania funkcjonalne i niefunkcjonalne czy kryteria akceptacji i ryzyka projektowe.
+Na podstawie wcześniej zebranych wymagań analitycy we współpracy z architektami systemu decydują jak będzie wyglądał końcowy efekt i w jaki sposób zostanie utworzony. Podejmowane są tutaj takie decyzje jak wybór technologii i achitektura całego systemu, tworzone są wstępne projekty intefrejsu. Definiowany jest zakres systemu, wymagania funkcjonalne i niefunkcjonalne czy kryteria akceptacji i ryzyka projektowe.
 
 \subsubsection*{Implementacja}
 Zespół programistów ze współpracy z architektami systemu implementują jego design. W tej fazie powinna powstać większość bytów programistycznych realizująca cały zakres systemu.
@@ -278,13 +297,13 @@ Scrum sam w sobie nie jest tak naprawdę metotyką, a bardziej \textit{framework
 \subsubsection*{Product Owner - właściciel produktu}
 \textit{Właściwiel produktu}, jak sama nazwa wskazuje, odpowiada za produkt tworzony przez zespół. Jego głównymi zadanami jest dbanie o \textit{Product backlog} i o wartość pracy zespołu.
 
-W odróżnieniu od metod kaskadowych, gdzie rola \textit{manedżera projektu} czy \textit{analityka} była rozłączna od całego zespołu, tutaj Product Owner jest jego częścią. "Opiekuje" się produktem tworzonym przez zespół. Wymagania nie są już tworzone tylko przez klienta i spisywane przez analityków, zespół tworzy je razem z Product Ownerem.\cite{scrum}
+W odróżnieniu od metod kaskadowych, gdzie rola \textit{manedżera projektu} czy \textit{analityka} była rozłączna od całego zespołu, tutaj Product Owner jest jego częścią. "Opiekuje" się produktem tworzonym przez zespół. Wymagania nie są już tworzone tylko przez klienta i spisywane przez analityków, zespół tworzy je razem z Product Ownerem\cite{scrum}.
 \subsubsection*{Scrum Master}
 
-\textit{Scrum Master} jest pewnego rodzaju strażnikiem całego zespołu Scrumowego. Dba on o to, aby zespół mógł pracować bez żadnych zakłóceń zewnętrznych, takich jak ingerencja wyższych kierowników, czy problemy firmy. Jest też swojego rodzaju strażnikiem procesu, ale rozumianym w mniej restrykcyjny sposób - dba o to, żeby wszyscy członkowie zespołu rozumieli tą metodykę i poprawnie ją stosowali. Wspomaga jego rozwój, dba o relacje między członkami zespołu. Asystuje Product Owner'a w kwestiach produktowych. Sam Scrum Master nie powinien uczestniczyć w programistycznych dyskusjach.\cite{scrum}
+\textit{Scrum Master} jest pewnego rodzaju strażnikiem całego zespołu Scrumowego. Dba on o to, aby zespół mógł pracować bez żadnych zakłóceń zewnętrznych, takich jak ingerencja wyższych kierowników, czy problemy firmy. Jest też swojego rodzaju strażnikiem procesu, ale rozumianym w mniej restrykcyjny sposób - dba o to, żeby wszyscy członkowie zespołu rozumieli tą metodykę i poprawnie ją stosowali. Wspomaga jego rozwój, dba o relacje między członkami zespołu. Asystuje Product Owner'a w kwestiach produktowych. Sam Scrum Master nie powinien uczestniczyć w programistycznych dyskusjach\cite{scrum}.
 
 \subsubsection*{Deweloper, czyli "zwykły" członek zespołu}
-Członkowie zespołu Scrumowego to nie koniecznie tylko programiści. W zależności od tego, czego potrzebuje zespół do realizowania User Stories mogą się w nim znaleźć takie role jak grafik, tester, projektant interfejsu, czy nawet tłumacz, jeżeli produkt tego wymaga. Ich rolą jest realizowanie User Storiesów. W odróżnieniu od programistów czy testerów w kaskadowym podejściu, zespół uczestniczy w spotkaniach produktowych i jest w stanie wpłynąć na to, jak wyglądają wymagania projektowe. Drużyna jest samoorganizacyjna, to oni decydują o tym, w jaki sposób wykonują zadania podczas Sprintu.
+Członkowie zespołu Scrumowego to nie koniecznie tylko programiści. W zależności od tego, czego potrzebuje zespół do realizowania User Stories mogą się w nim znaleźć takie role jak grafik, tester, projektant interfejsu, czy nawet tłumacz, jeżeli produkt tego wymaga. Ich rolą jest realizowanie User Storiesów. W odróżnieniu od programistów czy testerów w kaskadowym podejściu, zespół uczestniczy w spotkaniach produktowych i jest w stanie wpłynąć na to, jak wyglądają wymagania projektowe. Zespół jest samoorganizacyjny, to jego członkowie decydują o tym, w jaki sposób wykonują zadania podczas Sprintu.
 
 \subsubsection{Organizacja pracy}
 
@@ -315,14 +334,14 @@ Celem planowania jest wybranie realizowanych User Stories i rozbicie ich na zada
 
 Wybór realizowanych Stories jest kluczową rzeczą dla rozpoznawania ryzyka w projekcie i priorytetyzacji. Zespół razem z \textit{Product ownerem} skupia się nad tym, co chce w danym sprincie osiągnąć\cite{scrum}.
 
-Przy wyborze User Stories zespół szacuje, ile jednostek czasu jest w stanie na nie poświęcić, na przykład na podstawie metryk z wcześniejszych sprintów.\cite{scrum}.
+Przy wyborze User Stories zespół szacuje, ile jednostek czasu jest w stanie na nie poświęcić, na przykład na podstawie metryk z wcześniejszych sprintów\cite{scrum}.
 
-User Stories są rozbijane na mniejsze zadania, którym przypisywane są jednostki czasowe przewidziane na ich realizacje. Takie zadania mają na celu pomóc drużynie w rozdzieleniu pracy między członków.
+User Stories są rozbijane na mniejsze zadania, którym przypisywane są jednostki czasowe przewidziane na ich realizacje. Takie zadania mają na celu pomóc zespołowi w rozdzieleniu pracy między członków.
 
 \subsubsection*{Praca podczas Sprintu}
-Po Sprint Planningu drużyna skupia się na realizowaniu zadań. Codziennie odbywają się Daily.
+Po Sprint Planningu zespół skupia się na realizowaniu zadań. Codziennie odbywają się Daily.
 
-Organizacja pracy zależy tutaj tylko i wyłącznie od zespołu - w zasadach Scruma nie jest to zawarte - tu można zaobserwować wykorzystanie jednego z założeń Agile - \textit{Ludzie i interakcje ponad procesami i narzędziami}. To drużyna decyduje w jaki sposób realizuje zadania.
+Organizacja pracy zależy tutaj tylko i wyłącznie od zespołu - w zasadach Scruma nie jest to zawarte - tu można zaobserwować wykorzystanie jednego z założeń Agile - \textit{Ludzie i interakcje ponad procesami i narzędziami}. To zespół decyduje w jaki sposób realizuje zadania.
 
 \subsubsection*{Definiton of done}
 Definition of done \textit{z ang. miara kompletności} to abstrakcyjne pojęcie, które definiowane jest w każdym projekcie w inny sposób. Mówi ono o tym, jakie kryteria powinno spełniać zadanie czy User Story, żeby było określone jako ukończone. Ciężko jest podać dokładną definicję takiego abstrakcyjnego pojęcia.
@@ -337,14 +356,14 @@ Przykłady \textit{definition of done}:
 \end{center}
 
 \subsubsection*{Retrospektywa}
-Sprint nie narzuca zasad pracy podczas Sprintu i to zespół decyduje o jego dokładnym przebiegu. Retrospektywa to spotkanie mające na celu usprawniać działanie drużyny podczas trwania Sprintu. Takie spotkanie powinno odbywać się jeden raz w ciągu Sprintu.
+Sprint nie narzuca zasad pracy podczas Sprintu i to zespół decyduje o jego dokładnym przebiegu. Retrospektywa to spotkanie mające na celu usprawniać działanie zespołu podczas trwania Sprintu. Takie spotkanie powinno odbywać się jeden raz w ciągu Sprintu.
 
 Na retrospektywie każdy z członków zespołu może powiedzieć co jego zdaniem udało się zrobić dobrze, a co nie, oraz zasugerować rozwiązania danych problemów.
 
-Rezultatem retrospektywy są \textit{Action Points} \textit{(z ang. punkty akcji)}, czyli konkretne działania bądź zmiany w procesie jakie drużyna zastosuje podczas następnych sprintów, utworzone na podstawie odbytych dyskusji.
+Rezultatem retrospektywy są \textit{Action Points} \textit{(z ang. punkty akcji)}, czyli konkretne działania bądź zmiany w procesie jakie zespół zastosuje podczas następnych sprintów, utworzone na podstawie odbytych dyskusji.
 
 \subsection{Kanban}
-Metodyka ta została stworzona przez Taiichiego Ohno pracującego w japońskiej firmie *Toyota*. \cite{kanban}Kanban w odóżnieniu od Scruma charakteryzuje się ciągłym przepływem zadań (określanym mianem \textit{karteczek}) / User Stories i nie definiuje żadnych ról. Jego głównym celem jest wizualizacja pracy projektowej w zespole. Kanban to "lekka" metodyka, w czystej postaci znajdująca swoje zastosowanie głównie w niewielkich projektach i drużynach. \cite{kanban2}.
+Metodyka ta została stworzona przez Taiichiego Ohno pracującego w japońskiej firmie *Toyota*\cite{kanban}.Kanban w odóżnieniu od Scruma charakteryzuje się ciągłym przepływem zadań (określanym mianem \textit{karteczek}) / User Stories i nie definiuje żadnych ról. Jego głównym celem jest wizualizacja pracy projektowej w zespole. Kanban to "lekka" metodyka, w czystej postaci znajdująca swoje zastosowanie głównie w niewielkich projektach i zespołach\cite{kanban2}.
 
 \subsubsection{Przepływ zadań}
 
@@ -369,14 +388,180 @@ W Scrumie organizacja pracy podczas Sprintu nie była ustalona - to zespół dec
 
 
 \section{Proces w WMI Adventure}
+WMI Adventure od samego początku nie miał być projektem komercyjnym. Dostępność członków zespołu nie pozwalała na stosowanie na przykład czystej metodyki Scrum. Codziennie spotkania (daily) nie wnosiłyby niczego dla zespołu - często zdarzałyby się sytuacje, gdzie zespół nic nie zrobił przez ostatnie 24 godziny. 
+
+Dodatkowo specyfika projektu nie definiuje konkretnego klienta. WMI Adventure to gra przeznaczona dla wąskiej społeczności wydziału wywodząca się z naszego własnego pomysłu. Współpraca z potencjalnymi użytkownikami systemu wyglądała w zupełnie inny sposób, gdyż to my proponowaliśmy produkt i jego specyfikację licząc jedynie na opinię klientów.
 
 \subsection{Metodyka}
+Scrumban był metodyką najbardziej zbliżoną do naszych potrzeb i własnie na niego padł wybór. Nie podążaliśmy ściśle za proponowanymi zasadami - wykorzystaliśmy zwinne podejście także do samej metodyki modyfikując ją z każdą kolejną iteracją.
+
+Pierwszą wprowadzoną zmianą już w pierwszym sprincie to daily co drugi dzień. Wspominałem już o ograniczonej dostępności czasowej członków zespołu, stąd ta decyzja. Zespół doszedł do wniosku, że robiąc takie daily codziennie tracilibyśmy czas, który moglibyśmy poświęcić na pracę indywidualną.
+
+Taka wersja metodyki zapewniła nam dobry balans między czasem poświęconym na proces a pracą nad funkcjonalnościami w projekcie. Dołącznie do Scruma tablicy Kanbanowej zapewniło nam też organizację mniejszych zadań wewnątrz każdego sprintu. 
+
 \subsection{Role w zespole}
+Zespół liczył zaledwie 4 członków, więc nie byliśmy w stanie rozdzielić całkowicie ról deweloperów i tych wyróżnionych przez Scrum. Scrum Master i Product Owner pełnili zatem też role programistyczne.
+
+\begin{itemize}
+    \item \textbf{Mateusz Tylka} - Product Owner, deweloper - frontend
+    \item \textbf{Dawid Korybalski} - deweloper - frontend
+    \item \textbf{Michał Czekański} - deweloper, DevOps - backend
+    \item \textbf{Marcin Kostrzewski} - Scrum Master, deweloper, DevOps - backend i UI/UX
+\end{itemize}
+
+Można zauważyć, że w zespole można wyróżnić dwa mniejsze dwuosobowe zespoły podzielone ze względu na zakres prac programistycznych; tj. zespół backendowy i frontendowy. Podział ten był jednak jedynie symboliczny - zespół pracował zawsze razem, realizując te same cele realizując zadania z tej samej tablicy. Dwie siły były wyróżnione ze względu na naszye kompetencje i podział był naturalny.
+
+Podczas trwania całego projektu role te coraz bardziej się zacierały. Role backendowe i frontendowe przekształcały się na bardziej wszechstronne i zaangażowanie w produkt i proces rozmyło rolę Product Ownera i Scrum Mastera na wszystkich członków zespołu.
+
+Od października, czyli mniej więcej w połowie trwania projektu zespół zmniejszył się do trzech członków i skład od tego czasu prezentował się następująco:
+\begin{itemize}
+    \item \textbf{Mateusz Tylka} - Product Owner, deweloper - frontend i UI/UX
+    \item \textbf{Michał Czekański} - deweloper, DevOps - fullstack i UI/UX
+    \item \textbf{Marcin Kostrzewski} - Scrum Master, deweloper, DevOps - fullstack i UI/UX
+\end{itemize}
+
 \subsection{User Stories}
+\begin{tcolorbox}
+W każdym story pomijamy aktora, jest napisane w nagłówku kto nim jest. Dodatkowo historie podzielone są na sekcję będące częściami systemu.
+
+\begin{enumerate}
+    \item Użytkownik: \textbf{Student}
+    \begin{enumerate}
+        \item Tryb Battle
+        \begin{enumerate}
+            \item Chcę w głównym widoku wejść w Tryb Battle i zobaczyć listę graczy, których mogę wyzwać na pojedynek oraz tych których nie mogę i chce wiedzieć dlaczego nie mogę.
+            \item Chcę mieć możliwość wyboru przeciwnika, aby mieć kontrolę nad tym, z kim będę walczył.
+            \item Po przejściu w Tryb Battle chcę móc wyszukać użytkowników po nazwie, aby stoczyć pojedynek z konkretnym studentem.
+            \item Oprócz wyszukiwania przeciwników, chcę aby aplikacja pokazała mi kilku sugerowanych użytkowników do walki, abym nie musiał za każdym razem wyszukiwać konkretnych graczy.
+            \item Po wyborze przeciwnika chciałbym zobaczyć jego profil, żeby móc przygotować się do walki.
+            \item W widoku profilu przeciwnika chciałbym dowiedzieć się o jego procencie wygranych, punktach zdobytych w aplikacji, pozycji w rankingach, aktualnym semestrze, żeby móc ocenić swoje szanse na wygraną.
+            \item Po wyborze przeciwnika chcę mieć możliwość powrotu i wyboru innego przeciwnika, aby uniknąć nieprzemyślanych decyzji i ewentualnych missclicków.
+            \item Chcę widzieć przebieg walki, żeby czerpać z niej satysfakcję i zobaczyć jak działają moje karty.
+            \item Przed rozpoczęciem i w trakcie walki chcę mieć możliwość fast-forwardu, czyli automatycznego rozegrania pojedynku bez wizualizacji, żeby szybko dowiedzieć się o jej wyniku i nie tracić czasu.
+            \item Po wygranej lub przegranej walce chcę zobaczyć skutki pojedynku, żeby wiedzieć co się stało i ile zdobyłem/straciłem punktów.
+            \item Chcę, aby przebieg walki, czyli między innymi karty moje i przeciwnika, został zapisany. Chcę móc mieć dostęp do kilku ostatnich historycznych pojedynków, żeby ocenić dobór swoich kart i przygotować się lepiej do przyszłych walk.
+            \item Nie chcę, żeby jeden przeciwnik atakował mnie cały czas znając moją talię, aby uniknąć masowych strat punktów.
+            \item Przed każdą walką chcę mieć dodatkowo możliwość łatwego przejścia do mojej talii kart, aby dostosować ją do konkretnej walki bez konieczności powrotów do poprzednich menu.
+            \item Po przejściu w Tryb Battle w pierwszym widoku chcę zobaczyć moje statystyki z tego trybu, takie jak punkty, stoczone walki, wygrane walki razem z procentem wygranych, aby po każdej walce widzieć, jak zmienia się moja pozycja w rankingu bez potrzeby przechodzenia do innych widoków.
+            \item Po przejściu w Tryb Battle w pierwszym widoku chcę zobaczyć moją talię oraz mieć możliwość przejścia do zmiany talii, by móc zweryfikować jej skład i ewentualnie zmienić ją przed pojedynkami.
+            \item Po skończonej walce chcę mieć możliwość powrotu do Trybu Battle, żeby nie musieć przeklikiwać przez całą aplikację.
+            \item Chcę aby system walki kartami był zbalansowany i atraktyjny, żebym cieszył się z gry i nie czuł, że wygrywanie jest zbyt łatwe, lub zbyt trudne posiadając daną ilość kart i bedąc na X semestrze.
+            \item Chcę żeby tylko osoby o podobnym poziomie bitewnym co mój mogły mnie wyzywać na pojedynki, abym nie mógł łatwo wygrywać ciągle z tą samą osobą, lub jakaś mocniejsza osoba nie mogła w kółko nabijać sobie na mnie punktów.
+            \item Chcę aby konkretne karty były atrakcyjne, miały informatyczny przekaz i sensowne działanie, żeby cieszyć się z pojedynkowania, układania talii oraz kolekcjonowania kart.
+            \item Chcę, aby było jaśnie określone, czy karty mogą mi się przydać do czegoś więcej niż tylko do Trybu Battle i mieć jasny przekaz do czego jeszcze mogę ich użyć lub jakie dają korzyści, żeby wiedzieć co mogę z nimi zrobić i cieszyć się z aplikacji.
+        \end{enumerate}
+        \item Tryb Adventure
+        \begin{enumerate}
+            \item Chcę w głównym widoku wejść w Tryb Adventure i zobaczyć wszystkie historie wyróżnione na te dostępne do przejścia, te które przeszedłem i te które nie są jeszcze dostępne.
+            \item Chcę móc "przyśpieszyć" wyświetlanie napisów dialogowych, bo mogę czytać je szybciej i nie chcę tracić niepotrzebnie czasu.
+            \item Chcę mieć możliwość powrotu do historii, które już przeszedłem, aby jeszcze raz je sobie przypomnieć.
+            \item W dowolnym momencie chcę móc wyjść z trybu, żeby móc skupić się na innej rzeczy, którą w danej chwili chcę zrobić.
+            \item Po wyjściu z historii chcę mieć możliwość powrotu do konkretnego momentu, w którym skończyłem, żeby nie musieć oglądać dwa razy tego samego.
+            \item Jeżeli zdobędę nową kartę, chcę być o tym wyraźnie powiadomionym, zobaczyć czym ta karta jest, żeby dowiedzieć się, że w mojej talii pojawiła się nowa bez konieczności wychodzenia z trybu.
+            \item Chcę wyraźnie widzieć, która postać mówi aktualny dialog, żeby nie gubić się w treści.
+            \item Chcę cały czas widzieć pasek postępu w historii, którą przechodzę, żeby móc ocenić ilość czasu jaką muszę poświęcić na ukończenie jej.
+            \item Chcę mieć możliwość pokonywania kluczowych postaci w Trybie Adventure, żeby czerpać satysfakcję z progresowania w aplikacji.
+            \item Przed walką z bossem chcę mieć możliwość zmiany mojej talii, żeby nie musieć wychodzić z Trybu Adventure w celu dostosowania mojej talii pod bossa.
+            \item Po skończonej walce z bossem nie chcę być wyrzucany z Trybu Adventure, żeby móc dalej kontynuować historię.
+            \item Jeżeli pokonanie bossa wiążę się ze zdobyciem nowej karty, to przed walką chcę się o tym dowiedzieć, żeby mieć większą chęć do walki.
+        \end{enumerate}
+        \item Rankingi
+        \begin{enumerate}
+            \item Chcę mieć możliwość wyboru kategorii rankingowych, żeby w jednym momencie widzieć tylko tą, która mnie interesuje.
+            \item Chcę, żeby kilku najlepszych graczy było wyraźnie zaznaczonych, aby czerpać większą satysfakcję jeżeli to ja będę wśród nich.
+            \item Przy każdym użytkowniku w rankingu chcę widzieć jego pozycję i wynik, aby łatwo odczytać informację o nich.
+            \item Chcę móc kliknąć na dowolnego użytkownika żeby wyświetlić jego profil w celu pozyskania informacji o nim.
+            \item Po wyświetleniu wybranego profilu chcę mieć możliwość stoczenia z nim pojedynku, żeby nie musieć zapamiętywać jego nazwy do późniejszego wyszukiwania w Trybie Battle.
+            \item Chcę wyszukiwać użytkowników po nazwie, żeby zobaczyć ich pozycję w rankingu, ich profil.
+            \item Chcę zawsze widzieć swoją pozycję i wynik w kategorii, którą aktualnie wyświetlam, żeby mieć do niej łatwy dostęp i nie musieć przechodzi do swojego profilu.
+        \end{enumerate}
+        \item Profil użytkownika
+        \begin{enumerate}
+            \item Chcę widzieć swoją nazwę i statystyki, żeby analizować swoje postępy w aplikacji.
+            \item Chcę móc łatwo edytować swoją talię kart, żeby próbować różne kombinację bez konieczności wchodzenia w tryb Battle.
+            \item Przy dostosowaniu talii chcę widzieć wszystkie dostępne karty, aby mieć możliwość łatwej zmiany talii.
+            \item Chcę zobaczyć informację o karcie którą wybiorę, żeby dowiedzieć się co ona robi i zdecydować czy chcę coś z nią zrobić.
+            \item Chcę mieć wgląd na wszystkie karty jakie posiadam, żeby cieszyć się swoją kolekcją.
+            \item W edytorze talii chcę, aby nowo zdobyte karty były jakoś oznaczone, aby nie musieć ich wyszukiwać wśród wszystkich innych.
+            \item Chcę widzieć poziomy swoich kart, żeby łatwiej dostosowywać talię.
+            \item Chcę zawsze widzieć ilość punktów Skilli, żeby łatwiej podejmować decyzję ulepszania kart.
+            \item W każdej chwili chcę mieć możliwość podjęcia się rozwiązania quizu, żeby otrzymać nowe punkty Skilli.
+            \item Chcę mieć dostępne dwie talie kart - do obrony i do ataku, aby odpowiednio przygotować się na nadchodzące pojedynki
+        \end{enumerate}
+        \item Quizy
+        \begin{enumerate}
+            \item Chcę mieć dostęp do widoku ze wszystkimi pytaniami podzielone na kategorie, na które do tej pory udzieliłem poprawnej odpowiedzi w quizach, aby móc je sobie przypomnieć.
+        \end{enumerate}
+        \item Pozostałe
+        \begin{enumerate}
+            \item  Chcę mieć możliwość wyłączenia efektów dźwiękowych w aplikacji, aby nie musieć ich słyszeć gdy tego nie potrzebuję.
+            \item Chcę mieć możliwość zgłoszenia błędu w treściach aplikacji, żeby dać informację zwrotną twórcom, aby poprawili błąd.
+            \item Po wejściu do aplikacji chcę dowiedzieć się, czy trwa obecnie event losowy, aby zdobywać nowe karty, punkty PU i utrzymywać codzienną aktywność w grze.
+            \item Jeżeli nie mogę dołączyć do eventu losowego, chcę znać powód, aby dostosować się do jego wymagań i wziąć w nim udział.
+            \item Chcę dostawać powiadomienia informujące mnie o nowej zawartości w aplikacji, żebym mógł ją sprawdzić.
+            \item Chcę, aby opis do czego służy ta aplikacja i co można w niej robić nie był zbyt długi i znajdował się na jej stronie głównej bez potrzeby rejestracji, ani logowania, żeby łatwo się dowiedzieć, czy będę zainteresowany używaniem tej aplikacji.
+        \end{enumerate}
+    \end{enumerate}
+    \item Użytkownik: \textbf{Twórca}
+    \begin{enumerate}
+        \item Kreator Historii
+        \begin{enumerate}
+            \item Chcę móc dodawać swoje obrazy, aby potem wykorzystać je w historiach.
+            \item Chcę obsługę przezroczystości, żeby postacie dobrze wyświetlały się na tłach.
+            \item Chcę mieć możliwość symulacji historii, żeby zobaczyć jak będzie wyświetlana użytkownikom i poprawić ewentualne błędy.
+            \item Chcę móc dostosować parametry historii, aby wyświetlały się konkretnym studentom na danym semestrze z danym przedmiotem.
+            \item Chcę dodawać wiele emocji dla postaci i móc je wywoływać w konkretnych dialogach, aby tworzyć bardziej dynamiczne historie.
+            \item Chcę ustawić kiedy i jaką kartę użytkownik zdobędzie, żeby tworzyć historię, po których użytkownik zdobywa nowe karty.
+            \item Chcę móc wywoływać proste animacje, żeby historie lepiej wyglądały.
+            \item Chcę móc usuwać swoje dodane obrazy jeśli jednak zdecyduje się na inny wygląd sceny, aby historia była zaprezentowana według mojej wizji.
+            \item Chcę dostać powiadomienie czy wysłana przeze mnie historia została wysłana pomyślnie, aby wysłać ją jeszcze raz w razie potrzeby.
+            \item Chcę móc wybierać i usuwać grafiki już znajdujące się w bazie danych aplikacji aby je wykorzystywać do swojej historii.
+        \end{enumerate}
+        \item Kreator Kart
+        \begin{enumerate}
+            \item Chcę móc dodawać swoje obrazy, aby tworzyć unikalne karty.
+            \item Chcę wybierać efekty z listy, żeby tworzyć dynamiczne karty.
+            \item Chce móc dostosować parametry karty, żeby miały konkretne efekty w trybie Battle.
+            \item Chcę zdecydować w jaki sposób karta będzie ulepszana przez punkty Skilli.
+            \item Chcę móc tworzyć karty wszelkiego rodzaju, aby przyczynić się do rozwoju treści w aplikacji.
+            \item Chcę, aby karta zawierała tytuł, przedmiot i krótki opis, aby móc charakteryzować karty i dzielić je na kategorie.
+            \item Chcę móc nadać karcie więcej niż jeden efekt, aby karty były bardziej różnorodne.
+            \item Chcę mieć możliwość tworzenia kart dających mocne benefity, ale też pewne kary dla posiadacza, żeby karty były urozmaicone.
+            \item Chcę tworzyć karty, które na różnych poziomach będą miały różne efekty, żeby same karty i ich ulepszanie na wyższe poziomy było ciekawsze.
+            \item Chcę mieć możliwość dołączenia dodatkowych uwag w formie tekstowej do mojego zgłoszenia nowej karty, żeby przekazać administratorom informacje inne niż te udostępnione przez Kreator Kart.
+        \end{enumerate}
+        \item Kreator Quizów
+        \begin{enumerate}
+            \item Chcę mieć możliwość wyboru z listy wszystkich dostępnych przedmiotu, żeby przypisać pytanie Quizowe do danego przedmiotu.
+            \item Chcę mieć możliwość wyboru trybu pytania spośród prawda/fałsz, abc, itd., żeby dostosować Quiz do swoich potrzeb.
+            \item Chcę mieć możliwość wyboru poprawnych i złych odpowiedzi, żeby pytania Quizowe były pełne.
+            \item Chcę dostać powiadomienie czy wysłane przeze mnie pytanie zostało wysłane pomyślnie, aby wysłać je jeszcze raz w razie potrzeby.
+        \end{enumerate}
+        \item Wszyscy kreatorzy
+        \begin{enumerate}
+            \item Chcę dostać powiadomienie o zaakceptowaniu mojej stworzonej treści, żeby wiedzieć, czy stworzyć dobrą treść.
+            \item Chcę dostać powiadomienie o odrzuceniu mojej stworzonej treści z uzasadnieniem, żeby móc poprawić moją treść.
+            \item Chcę dostać jakieś benefity za nadesłanie zaakceptowanych treści, żeby czuć satysfakcję z tworzenia.
+            \item Chcę móc edytować wszystkie stworzone przez siebie zawartości, w tym te odrzucone, żeby móc je poprawić.
+        \end{enumerate}
+    \end{enumerate}
+    \item Administrator
+    \begin{enumerate}
+        \item Chcę mieć możliwość modyfikowania parametrów aplikacji, żeby łatwo usprawniać jej działanie.
+        \item Chcę widzieć statystyki aplikacji takie jak ilość aktywnych użytkowników, ilość wszystkich użytkowników, średni czas pracy, aby oceniać jak dobrze aplikacja pracuje.
+        \item Chcę mieć możliwość akceptowania / odrzucania propozycji nowej zawartości i dodawania komentarzy, żeby decydować co trafia do aplikacji i dawać feedback twórcom.
+        \item Chce mieć realistyczny podgląd proponowanych treści, żeby ocenić czy je zaakceptować.
+        \item Chcę móc tworzyć konta testowe, aby swobodnie sprawdzać działanie aplikacji jako użytkownik.
+        \item Chcę móc usuwać zawartości już dodane, aby pozbyć się ewentualnych błędów lub złego contentu.
+        \item Chcę otrzymywać informację o zgłoszeniach nowego contentu, aby nie musieć za każdym razem sprawdzać listy.
+        \item Chcę otrzymywać powiadomienia o zgłoszonych błędach, żeby je poprawiać.
+    \end{enumerate}
+\end{enumerate}
+\end{tcolorbox}
+\section{Ewolucja procesu}
 
 \section{Wykorzystanie GitHub Projects jako narzędzia do zarządzania procesem}
 
-\section{Ewolucja}
 
 \printbibliography
 
