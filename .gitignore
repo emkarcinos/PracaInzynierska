@@ -6,3 +6,7 @@
 *.gz
 *.toc
 *.aux
+*.bbl
+*.bcf
+*.blg
+main.run.xml
